@@ -8,5 +8,5 @@ image: catImage
 }
 
 function drawObjects (){
-
+ctx.beginPath
 }
