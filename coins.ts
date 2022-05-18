@@ -5,14 +5,32 @@ import {pinkCoin.png} from 'images';
 import {silverCoin.png} from 'images';
 
 export let coin = {
-  x: 64,
-  y: 64,
+  x: 0,
+  y: 0,
  image: goldCoin.png,
 }
 
-export let blueCoin = {
-  x: 64,
-  y: 64,
+export let bCoin = {
+  x: 0,
+  y: 0,
   image: blueCoin.png
+}
+
+export let gCoin = {
+  x: 0,
+  y: 0,
+  image: greenCoin.png,
+}
+
+export let pCoin = {
+  x: 0,
+  y: 0,
+  image: pinkCoin.png,
+}
+
+export let sCoin = {
+  x: 0,
+  y: 0,
+  image: silverCoin.png,
 }
 
