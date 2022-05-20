@@ -1,4 +1,4 @@
-let canvas = document.createElement('canvas');
+export let canvas = document.createElement('canvas');
 app.appendChild(canvas);
 let ctx = canvas.getContext('2d');
 

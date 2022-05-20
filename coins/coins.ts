@@ -1,9 +1,12 @@
-import {blueCoin.png} from './images';
-import {goldCoin.png} from './images';
-import {greenCoin.png} from './images';
-import {pinkCoin.png} from './images';
-import {silverCoin.png} from './images';
+import {blueCoin.png} from './image';//shark and ocean
+import {goldCoin.png} from './image';
+import {greenCoin.png} from './image';//muscle
+import {pinkCoin.png} from './image';//wings
+import {silverCoin.png} from './image';//double points
+import {canvas} from './main/canvas';
 
+let startTime = 0;
+ 
 export let coin = {
   x: 0,
   y: 0,
@@ -51,20 +54,36 @@ function drawCoin() {
 function updateCoin(elapsed: number) {
   const drift = 0;
   const fallSpeed = -75;
-  coin.y += fallSpeed * elapsed / 1000;
+  coin.x += fallSpeed * elapsed / 1000;
   //CHANGE THESE NUMBERS WHEN YOU KNOW THE CANVAS SIZE!!!!
   if (coin.y < 50) {
-    coin.y = 500;
+    coin.y = 0;
   }
   if (coin.x < 0) {
     coin.x = canvas.width - 25;
   }
   if (coin.x < canvas.width) {
-    coin.x = 240;
+    coin.x = canvas.width;
   }
 }
 
-function drawScoin() {
+function animateCoin(timestamp: number = 0) {
+  let elapsed;
+  if (timestamp) {
+    if (!startTime) {
+      startTime = timestamp;
+      elapsed = 0;
+    } else {
+      elapsed = timestamp - startTime
+      startTime = timestamp;
+    }
+    updateCoin(elapsed);
+  }
+  drawCoin();
+  requestAnimationFrame(animateCoin)
+}
+
+/*function drawScoin() {
   let ctx = canvas.getContext ('2d');
   ctx.resetTransform ();
   ctx.translate (coinx+25, coin.y+25);
@@ -72,4 +91,4 @@ function drawScoin() {
   ctx.drawImage(
     sCoin.image
   )
-}
+}*/
