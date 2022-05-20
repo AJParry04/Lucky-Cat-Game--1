@@ -21,19 +21,19 @@ export let gCoinImage = document.createElement('img');
 gCoinImage.src = gCoinUrl;
 assetDiv.appendChild(gCoinImage);
 
-import coinUrl from './assets/coin.png';
+//import coinUrl from './assets/coin.png';
 
 export let coinImage = document.createElement('img');
 coinImage.src = coinUrl;
 assetDiv.appendChild(coinImage);
 
-import pcoinUrl from './assets/pinkcoin.png';
+import pcoinUrl from './assets/pinkCoin.png';
 
 export let pcoinImage = document.createElement('img');
 pcoinImage.src = pcoinUrl;
 assetDiv.appendChild(pcoinImage);
 
-import scoinUrl from './assets/silvercoin.png';
+import scoinUrl from './assets/silverCoin.png';
 
 export let scoinImage = document.createElement('img');
 scoinImage.src = scoinUrl;
