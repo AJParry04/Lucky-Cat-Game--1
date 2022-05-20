@@ -1,4 +1,4 @@
-//angie did all of this B)
+//danny did all of this B)
 
 import catUrl from './assets/catSprite.png';
 let assetDiv: HTMLDivElement = document.querySelector('#assets');
