@@ -201,3 +201,5 @@ export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, 
 	}
 });
 };
+
+//To do, add a multi option updateObject and animateObject function.
