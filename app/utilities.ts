@@ -3,7 +3,7 @@
 import { canvasImage, collision } from "./globals";
 import { ctx, canvas } from "./canvas";
 
-//Serves as our offset multiplier for clearing the image to avoid artifacts.
+//Serves as our offset multiplier for clearing the image to avoid artifacts. Not letting others set this as this value has been tried and stays true.
 const clearMod: number = 2;
 
 //Draws a simple canvas image with no animations.
