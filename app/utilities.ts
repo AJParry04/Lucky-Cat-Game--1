@@ -1,7 +1,7 @@
 //Import type and context.
 
 import { canvasImage, collision } from "./globals";
-import { ctx } from "./canvas";
+import { ctx, canvas } from "./canvas";
 
 //Serves as our offset multiplier for clearing the image to avoid artifacts.
 const clearMod: number = 2;
@@ -84,6 +84,7 @@ export const worldCollisionDetection = (object: collision, left: number, top: nu
 		object.colliding = true;
 	}
 };
+
 //Hopefully working object collision!
 export const objectCollisionDetection = (object1: collision, object2: collision) => {
 	if (object1.leftCollision < object2.rightCollision) (object1.topCollision > object2.bottomCollision) {
@@ -126,10 +127,11 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 	}
 };
 
-export const objectKeyboard = (object: canvasImage, element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
+//key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to.
+export const objectKeyboard = (object: canvasImage, element: Element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
 	const vel: number = (velMod * elapsed) / 1000;
 	if (element === undefined) {
-		element = window;
+		element = canvas;
 	}
 	if (eventType === undefined) {
 		eventType = "keydown";
