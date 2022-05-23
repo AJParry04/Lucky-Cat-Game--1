@@ -30,8 +30,28 @@ export const sharkImage: HTMLImageElement = document.createElement("img");
 export const silverCoinImage: HTMLImageElement = document.createElement("img");
 
 //Create lists to iterate over.
-const urlList = [catUrl, goldCoinUrl, angelUrl, blueCoinUrl, greenCoinUrl, muscleUrl, pinkCoinUrl, sharkUrl, silverCoinUrl]; //Cannot type this because it uses vite magic to work.
-const imageList: HTMLImageElement[] = [catImage, goldCoinImage, angelImage, blueCoinImage, greenCoinImage, muscleImage, pinkCoinImage, sharkImage, silverCoinImage];
+const urlList = [
+	catUrl,
+	goldCoinUrl,
+	angelUrl,
+	blueCoinUrl,
+	greenCoinUrl,
+	muscleUrl,
+	pinkCoinUrl,
+	sharkUrl,
+	silverCoinUrl
+]; //Cannot type this because it uses vite magic to work.
+const imageList: HTMLImageElement[] = [
+	catImage,
+	goldCoinImage,
+	angelImage,
+	blueCoinImage,
+	greenCoinImage,
+	muscleImage,
+	pinkCoinImage,
+	sharkImage,
+	silverCoinImage
+];
 
 //Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment and assemble.
 for (let i: number = imageList.length; --i;) {

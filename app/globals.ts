@@ -1,4 +1,14 @@
-import { catImage, goldCoinImage, blueCoinImage, greenCoinImage, pinkCoinImage, silverCoinImage, sharkImage, muscleImage, angelImage } from "./images";
+import { 
+	catImage,
+	goldCoinImage,
+	blueCoinImage,
+	greenCoinImage,
+	pinkCoinImage,
+	silverCoinImage,
+	sharkImage,
+	muscleImage,
+	angelImage
+} from "./images";
 
 //Default values to fallback on.
 const defMoveSpeed: number = 10;
