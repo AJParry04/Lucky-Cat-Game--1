@@ -51,19 +51,19 @@ Handles world collisions for an object.
 left top right and bottom should be 0, 0, canvas.width, canvas.height. 
 */
 export const worldCollisionDetection = (object: collision, left: number, top: number, right: number, bottom: number) => {
-	if (object.bottomCollision != bottom) {
+	if (object.bottomCollision < bottom) {
 		object.colliding = false;
 	}
 
-	if (object.leftCollision != left) {
+	if (object.leftCollision > left) {
 		object.colliding = false;
 	}
 
-	if (object.rightCollision != right) {
+	if (object.rightCollision < right) {
 		object.colliding = false;
 	}
 
-	if (object.topCollision != top) {
+	if (object.topCollision > top) {
 		object.colliding = false;
 	}
 	
@@ -85,22 +85,22 @@ export const worldCollisionDetection = (object: collision, left: number, top: nu
 }
 //Experimental object collision, more than likely does not work well.
 export const objectCollisionDetection = (object1: collision, object2: collision) => {
-	if (object1.leftCollision != object2.rightCollision) (object1.topCollision != object2.bottomCollision) {
+	if (object1.leftCollision < object2.rightCollision) (object1.topCollision > object2.bottomCollision) {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
 	
-	if (object1.rightCollision != object2.leftCollision) (object1.topCollision != object2.bottomCollision) {
+	if (object1.rightCollision > object2.leftCollision) (object1.topCollision > object2.bottomCollision) {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
 	
-	if (object1.leftCollision != object2.rightCollision) (object1.bottomCollision != object2.topCollision) {
+	if (object1.leftCollision < object2.rightCollision) (object1.bottomCollision < object2.topCollision) {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
 	
-	if (object1.rightCollision != object2.leftCollision) (object1.bottomCollision != object2.topCollision) {
+	if (object1.rightCollision > object2.leftCollision) (object1.bottomCollision < object2.topCollision) {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
