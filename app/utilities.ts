@@ -200,4 +200,4 @@ export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, 
 		reel = 0;
 	}
 });
-}
+};
