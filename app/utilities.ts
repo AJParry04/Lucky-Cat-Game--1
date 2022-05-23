@@ -128,16 +128,12 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 };
 
 //key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to.
-export const objectMovementKeyboard = (object: canvasImage, element: Element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
+export const objectMovementKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
 	
 	const vel: number = (velMod * elapsed) / 1000; //1000 = ms
 	
 	if (element === undefined) {
 		element = canvas;
-	}
-	
-	if (eventType === undefined) {
-		eventType = "keydown";
 	}
 	
 	if (key1 === undefined) {
@@ -156,7 +152,7 @@ export const objectMovementKeyboard = (object: canvasImage, element: Element, ev
 		key4 = "";
 	}
 	
-	element.addEventListener(eventType, (event) => {
+	element.addEventListener("keydown", (event) => {
 		if (event.key === key1) {
 			object.vy = 0;
 			object.vx += vel;
@@ -181,4 +177,24 @@ export const objectMovementKeyboard = (object: canvasImage, element: Element, ev
 			return;
 		}
 	});
+};
+
+//Scrolls through the sprite reel horizontally. Vertical support may be added if we make assets with vertical panning but unlikely. Functions similarly to movement keyboard with the exception of there only being 2 buttons allowed and they must be used.
+export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, reelMod: number, reelMaxWidth: number) => {
+	let reel: number = 0;
+	element.addEventListener("keydown", (event) => {
+	if (reel < reelMaxWidth) {
+		if (event.key === key1) {
+			reel -= reelMod;
+			drawCanvasSprite(object, reel, 0);
+		}
+		if (event.key === key2) {
+			reel += reelMod;
+			drawCanvasSprite(object, reel, 0);
+		}
+	}
+	if (reel >= reelMaxWidth) {
+		reel = 0;
+	}
+});
 }
