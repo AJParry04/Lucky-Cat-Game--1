@@ -1,7 +1,7 @@
 //Import type and context.
 
 import { canvasImage, collision } from "./globals";
-import { ctx, canvas } from "./canvas";
+import { ctx } from "./canvas";
 
 //Serves as our offset multiplier for clearing the image to avoid artifacts. Not letting others set this as this value has been tried and stays true.
 const clearMod: number = 2;
@@ -127,30 +127,10 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 	}
 };
 
-//key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to.
+//key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to. Intended for up down left and right movement but COULD be used for horizontal or vertical only by labeling them with "".
 export const objectMovementKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
 
 	const vel: number = (velMod * elapsed) / 1000; //1000 = ms
-
-	if (element === undefined) {
-		element = canvas;
-	}
-
-	if (key1 === undefined) {
-		key1 = "";
-	}
-
-	if (key2 === undefined) {
-		key2 = "";
-	}
-
-	if (key3 === undefined) {
-		key3 = "";
-	}
-
-	if (key4 === undefined) {
-		key4 = "";
-	}
 
 	element.addEventListener("keydown", (event) => {
 		if (event.key === key1) {
@@ -179,12 +159,9 @@ export const objectMovementKeyboard = (object: canvasImage, element: Element, ke
 	});
 };
 
-//Scrolls through the sprite reel horizontally. Vertical support may be added if we make assets with vertical panning but unlikely. Functions similarly to movement keyboard with the exception of there only being 2 buttons allowed and they must be used.
+//Scrolls through the sprite reel horizontally. Vertical support may be added if we make assets with vertical panning but unlikely. Functions similarly to movement keyboard with the exception of there only being 2 buttons allowed and they must be used. Probably should be bound to what movement keys we're currently working with.
 export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, reelMod: number, reelMaxWidth: number) => {
 	let reel: number = 0;
-	if (element === undefined) {
-		element = canvas;
-	}
 	element.addEventListener("keydown", (event) => {
 		if (reel < reelMaxWidth) {
 			if (event.key === key1) {

@@ -4,6 +4,7 @@ import { catImage, goldCoinImage, blueCoinImage, greenCoinImage, pinkCoinImage, 
 const defMoveSpeed: number = 10;
 const defSize: number = 64;
 const defPos: number = 0;
+
 //Making our own type for a canvas image.
 export type canvasImage = {
 	x: number,
@@ -15,6 +16,7 @@ export type canvasImage = {
 	image: HTMLImageElement,
 };
 
+//Making a collision type for more accurate collision detection and handling.
 export type collision = {
 	leftCollision: number,
 	topCollision: number,
