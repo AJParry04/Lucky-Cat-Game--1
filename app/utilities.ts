@@ -48,7 +48,8 @@ export const drawCanvasSprite = (object: canvasImage, panw: number, panh: number
 
 /*
 Handles world collisions for an object. 
-left top right and bottom should be 0, 0, canvas.width, canvas.height. 
+left top right and bottom should be 0, 0, canvas.width, canvas.height.
+Specifically used to only flip one objects colliding switch when colliding with the world.
 */
 export const worldCollisionDetection = (object: collision, left: number, top: number, right: number, bottom: number) => {
 	if (object.bottomCollision < bottom) {
