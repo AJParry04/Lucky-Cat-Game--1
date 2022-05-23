@@ -1,7 +1,7 @@
 //Import image urls using vite magic sauce.
 
-import catUrl from "/app/assets/catSprite.webp";
-import goldCoinUrl from "/app/assets/goldCoin.webp";
+import {catUrl} from "/app/assets/catSprite.webp";
+import {goldCoinUrl} from "/app/assets/goldCoin.webp";
 
 /*
 Setup assetdiv and create a fragment to improve performance. 
@@ -19,7 +19,7 @@ export const goldCoinImage: HTMLImageElement = document.createElement("img");
 const urlList = [catUrl, goldCoinUrl]; //Cannot type this because it uses vite magic to work.
 const imageList: HTMLImageElement[] = [catImage, goldCoinImage];
 
-//Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment.
+//Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment and assemble.
 for (let i: number = imageList.length; --i;) {
 	imageList[i].src = urlList[i];
 	fragment.appendChild(imageList[i]);

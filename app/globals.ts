@@ -1,5 +1,6 @@
 import {catImage, goldCoinImage} from "./images";
 
+//Default values to fallback on.
 const defMoveSpeed: number = 10;
 const defSize: number = 64;
 const defPos: number = 0;
