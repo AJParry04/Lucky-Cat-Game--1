@@ -1,14 +1,4 @@
-import { 
-	catImage,
-	goldCoinImage,
-	blueCoinImage,
-	greenCoinImage,
-	pinkCoinImage,
-	silverCoinImage,
-	sharkImage,
-	muscleImage,
-	angelImage
-} from "./images";
+import {imageList} from "./images";
 
 //Default values to fallback on.
 const defMoveSpeed: number = 10;
@@ -34,114 +24,97 @@ export type collision = {
 	bottomCollision: number,
 	colliding: boolean,
 };
-
-export const cat: canvasImage = {
+const angel: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: catImage,
+	image: imageList[0],
 };
 
-export const shark: canvasImage = {
+const blueCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: sharkImage,
+	image: imageList[1],
 };
 
-export const angel: canvasImage = {
+const cat: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: angelImage,
+	image: imageList[2],
 };
 
-export const muscle: canvasImage = {
+const goldCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: muscleImage,
+	image: imageList[3],
 };
 
-export const goldCoin: canvasImage = {
+const greenCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: goldCoinImage,
+	image: imageList[4],
 };
 
-export const blueCoin: canvasImage = {
+const muscle: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: blueCoinImage,
+	image: imageList[5],
 };
 
-export const greenCoin: canvasImage = {
+const pinkCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: greenCoinImage,
+	image: imageList[6],
 };
 
-export const pinkCoin: canvasImage = {
+const shark: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: pinkCoinImage,
+	image: imageList[7],
 };
 
-export const silverCoin: canvasImage = {
+const silverCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: silverCoinImage,
+	image: imageList[8],
 };
 
-export const catCollision: collision = {
-	leftCollision: cat.x,
-	topCollision: cat.y,
-	rightCollision: cat.x + cat.sizex,
-	bottomCollision: cat.y + cat.sizey,
-	colliding: false,
-};
-
-export const sharkCollision: collision = {
-	leftCollision: shark.x,
-	topCollision: shark.y,
-	rightCollision: shark.x + shark.sizex,
-	bottomCollision: shark.y + shark.sizey,
-	colliding: false,
-};
-
-export const angelCollision: collision = {
+const angelCollision: collision = {
 	leftCollision: angel.x,
 	topCollision: angel.y,
 	rightCollision: angel.x + angel.sizex,
@@ -149,23 +122,7 @@ export const angelCollision: collision = {
 	colliding: false,
 };
 
-export const muscleCollision: collision = {
-	leftCollision: muscle.x,
-	topCollision: muscle.y,
-	rightCollision: muscle.x + muscle.sizex,
-	bottomCollision: muscle.y + muscle.sizey,
-	colliding: false,
-};
-
-export const goldCollision: collision = {
-	leftCollision: goldCoin.x,
-	topCollision: goldCoin.y,
-	rightCollision: goldCoin.x + goldCoin.sizex,
-	bottomCollision: goldCoin.y + goldCoin.sizey,
-	colliding: false,
-};
-
-export const blueCollision: collision = {
+const blueCollision: collision = {
 	leftCollision: blueCoin.x,
 	topCollision: blueCoin.y,
 	rightCollision: blueCoin.x + blueCoin.sizex,
@@ -173,7 +130,23 @@ export const blueCollision: collision = {
 	colliding: false,
 };
 
-export const greenCollision: collision = {
+const catCollision: collision = {
+	leftCollision: cat.x,
+	topCollision: cat.y,
+	rightCollision: cat.x + cat.sizex,
+	bottomCollision: cat.y + cat.sizey,
+	colliding: false,
+};
+
+const goldCollision: collision = {
+	leftCollision: goldCoin.x,
+	topCollision: goldCoin.y,
+	rightCollision: goldCoin.x + goldCoin.sizex,
+	bottomCollision: goldCoin.y + goldCoin.sizey,
+	colliding: false,
+};
+
+const greenCollision: collision = {
 	leftCollision: greenCoin.x,
 	topCollision: greenCoin.y,
 	rightCollision: greenCoin.x + greenCoin.sizex,
@@ -181,7 +154,15 @@ export const greenCollision: collision = {
 	colliding: false,
 };
 
-export const pinkCollision: collision = {
+const muscleCollision: collision = {
+	leftCollision: muscle.x,
+	topCollision: muscle.y,
+	rightCollision: muscle.x + muscle.sizex,
+	bottomCollision: muscle.y + muscle.sizey,
+	colliding: false,
+};
+
+const pinkCollision: collision = {
 	leftCollision: pinkCoin.x,
 	topCollision: pinkCoin.y,
 	rightCollision: pinkCoin.x + pinkCoin.sizex,
@@ -189,10 +170,42 @@ export const pinkCollision: collision = {
 	colliding: false,
 };
 
-export const silverCollision: collision = {
+const sharkCollision: collision = {
+	leftCollision: shark.x,
+	topCollision: shark.y,
+	rightCollision: shark.x + shark.sizex,
+	bottomCollision: shark.y + shark.sizey,
+	colliding: false,
+};
+
+const silverCollision: collision = {
 	leftCollision: silverCoin.x,
 	topCollision: silverCoin.y,
 	rightCollision: silverCoin.x + silverCoin.sizex,
 	bottomCollision: silverCoin.y + silverCoin.sizey,
 	colliding: false,
 };
+
+export const objectList: canvasImage[] = [
+	angel,
+	blueCoin,
+	cat,
+	goldCoin,
+	greenCoin,
+	muscle,
+	pinkCoin,
+	shark,
+	silverCoin
+];
+
+export const collisionList: collision[] = [
+	angelCollision,
+	blueCollision,
+	catCollision,
+	goldCollision,
+	greenCollision,
+	muscleCollision,
+	pinkCollision,
+	sharkCollision,
+	silverCollision
+]
