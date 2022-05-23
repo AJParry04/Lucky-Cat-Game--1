@@ -182,6 +182,9 @@ export const objectMovementKeyboard = (object: canvasImage, element: Element, ke
 //Scrolls through the sprite reel horizontally. Vertical support may be added if we make assets with vertical panning but unlikely. Functions similarly to movement keyboard with the exception of there only being 2 buttons allowed and they must be used.
 export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, reelMod: number, reelMaxWidth: number) => {
 	let reel: number = 0;
+	if (element === undefined) {
+		element = canvas;
+	}
 	element.addEventListener("keydown", (event) => {
 	if (reel < reelMaxWidth) {
 		if (event.key === key1) {
