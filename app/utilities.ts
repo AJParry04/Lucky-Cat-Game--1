@@ -82,7 +82,7 @@ export const worldCollisionDetection = (object: collision, left: number, top: nu
 	if (object.topCollision <= top) {
 		object.colliding = true;
 	}
-}
+};
 //Hopefully working object collision!
 export const objectCollisionDetection = (object1: collision, object2: collision) => {
 	if (object1.leftCollision < object2.rightCollision) (object1.topCollision > object2.bottomCollision) {
@@ -123,4 +123,4 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 		object1.colliding = true;
 		object2.colliding = true;
 	}
-}
+};
