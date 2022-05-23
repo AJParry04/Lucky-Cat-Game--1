@@ -50,39 +50,39 @@ export const drawCanvasSprite = (object: canvasImage, panw: number, panh: number
 Handles world collisions for an object. 
 left top right and bottom should be 0, 0, canvas.width, canvas.height. 
 */
-export const worldCollisionDetection = (object: canvasImage, left: number, top: number, right: number, bottom: number) => {
+export const worldCollisionDetection = (object: collision, left: number, top: number, right: number, bottom: number) => {
 	let colliding = false;
-	if (object.y >= bottom) {
+	if (object.bottomCollision >= bottom) {
 		colliding = true;
 	}
 
-	else if (object.x <= left) {
+	else if (object.leftCollision <= left) {
 		colliding = true;
 	}
 
-	else if (object.x >= right) {
+	else if (object.rightCollision >= right) {
 		colliding = true;
 	}
 
-	else if (object.y < top) {
+	else if (object.topCollision < top) {
 		colliding = true;
 	}
 	return colliding;
 }
-
+//Experimental object collision, more than likely does not work.
 export const objectCollisionDetection = (object1: collision, object2: collision) => {
 	let colliding = false;
 	
-	if (object1.leftCollision == object2.rightCollision) {
+	if (object1.leftCollision >= object2.rightCollision)(object1.topCollision <= object2.bottomCollision) {
 		colliding = true;
 	}
-	else if (object1.rightCollision == object2.leftCollision) {
+	else if (object1.rightCollision <= object2.leftCollision)(object1.topCollision <= object2.bottomCollision) {
 		colliding = true;
 	}
-	else if (object1.topCollision == object2.bottomCollision) {
+	else if (object1.leftCollision >= object2.rightCollision)(object1.bottomCollision >= object2.topCollision) {
 		colliding = true;
 	}
-	else if (object1.bottomCollision == object2.topCollision) {
+	else if (object1.rightCollision <= object2.leftCollision)(object1.bottomCollision >= object2.topCollision) {
 		colliding = true;
 	}
 	return colliding;
