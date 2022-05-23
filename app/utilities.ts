@@ -1,6 +1,6 @@
 //Import type and context.
 
-import { canvasImage } from "./globals";
+import { canvasImage, collision } from "./globals";
 import { ctx } from "./canvas";
 
 //Serves as our offset multiplier for clearing the image to avoid artifacts.
@@ -72,4 +72,22 @@ export const worldCollisionDetection = (object: canvasImage, left: number, top: 
 		object.y = bottom - resetMod;
 		object.vy = -resetvy;
 	}//Same as left collision.
+}
+
+export const objectCollisionDetection = (object1: collision, object2: collision) => {
+	let colliding = false;
+	
+	if (object1.leftCollision == object2.rightCollision) {
+		colliding = true;
+	}
+	else if (object1.rightCollision == object2.leftCollision) {
+		colliding = true;
+	}
+	else if (object1.topCollision == object2.bottomCollision) {
+		colliding = true;
+	}
+	else if (object1.bottomCollision == object2.topCollision) {
+		colliding = true;
+	}
+	return colliding;
 }
