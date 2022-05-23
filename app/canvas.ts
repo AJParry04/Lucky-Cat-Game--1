@@ -10,8 +10,10 @@ export const height: number = 720;
 
 canvas.width = width;
 canvas.height = height;
+
 style.width = `${width}px`;
 style.height = `${height}px`;
+
 style.border = '4px';
 style.borderColor = 'red';
 

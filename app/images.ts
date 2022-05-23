@@ -20,7 +20,7 @@ const urlList = [catUrl, goldCoinUrl]; //Cannot type this because it uses vite m
 const imageList: HTMLImageElement[] = [catImage, goldCoinImage];
 
 //Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment.
-for(let i: number = imageList.length;--i;) {
+for (let i: number = imageList.length; --i;) {
 	imageList[i].src = urlList[i];
 	fragment.appendChild(imageList[i]);
 }
