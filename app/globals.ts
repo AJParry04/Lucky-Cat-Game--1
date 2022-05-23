@@ -19,7 +19,8 @@ export type collision = {
 	leftCollision: number,
 	topCollision: number,
 	rightCollision: number,
-	bottomCollision: number
+	bottomCollision: number,
+	colliding: boolean,
 }
 
 export const cat: canvasImage = {
@@ -46,12 +47,14 @@ export const catCollision: collision = {
 	leftCollision: cat.x,
 	topCollision: cat.y,
 	rightCollision: cat.x + cat.sizex,
-	bottomCollision: cat.y + cat.sizey
+	bottomCollision: cat.y + cat.sizey,
+	colliding: false,
 }
 
 export const goldCollision: collision = {
 	leftCollision: goldCoin.x,
 	topCollision: goldCoin.y,
 	rightCollision: goldCoin.x + goldCoin.sizex,
-	bottomCollision: goldCoin.y + goldCoin.sizey
+	bottomCollision: goldCoin.y + goldCoin.sizey,
+	colliding: false,
 }

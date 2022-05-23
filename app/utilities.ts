@@ -51,39 +51,76 @@ Handles world collisions for an object.
 left top right and bottom should be 0, 0, canvas.width, canvas.height. 
 */
 export const worldCollisionDetection = (object: collision, left: number, top: number, right: number, bottom: number) => {
-	let colliding = false;
-	if (object.bottomCollision >= bottom) {
-		colliding = true;
+	if (object.bottomCollision != bottom) {
+		object.colliding = false;
 	}
 
-	else if (object.leftCollision <= left) {
-		colliding = true;
+	if (object.leftCollision != left) {
+		object.colliding = false;
 	}
 
-	else if (object.rightCollision >= right) {
-		colliding = true;
+	if (object.rightCollision != right) {
+		object.colliding = false;
 	}
 
-	else if (object.topCollision < top) {
-		colliding = true;
+	if (object.topCollision != top) {
+		object.colliding = false;
 	}
-	return colliding;
-}
-//Experimental object collision, more than likely does not work.
-export const objectCollisionDetection = (object1: collision, object2: collision) => {
-	let colliding = false;
 	
-	if (object1.leftCollision >= object2.rightCollision)(object1.topCollision <= object2.bottomCollision) {
-		colliding = true;
+	if (object.bottomCollision >= bottom) {
+		object.colliding = true;
 	}
-	else if (object1.rightCollision <= object2.leftCollision)(object1.topCollision <= object2.bottomCollision) {
-		colliding = true;
+
+	if (object.leftCollision <= left) {
+		object.colliding = true;
 	}
-	else if (object1.leftCollision >= object2.rightCollision)(object1.bottomCollision >= object2.topCollision) {
-		colliding = true;
+
+	if (object.rightCollision >= right) {
+		object.colliding = true;
 	}
-	else if (object1.rightCollision <= object2.leftCollision)(object1.bottomCollision >= object2.topCollision) {
-		colliding = true;
+
+	if (object.topCollision <= top) {
+		object.colliding = true;
 	}
-	return colliding;
+}
+//Experimental object collision, more than likely does not work well.
+export const objectCollisionDetection = (object1: collision, object2: collision) => {
+	if (object1.leftCollision != object2.rightCollision) (object1.topCollision != object2.bottomCollision) {
+		object1.colliding = false;
+		object2.colliding = false;
+	}
+	
+	if (object1.rightCollision != object2.leftCollision) (object1.topCollision != object2.bottomCollision) {
+		object1.colliding = false;
+		object2.colliding = false;
+	}
+	
+	if (object1.leftCollision != object2.rightCollision) (object1.bottomCollision != object2.topCollision) {
+		object1.colliding = false;
+		object2.colliding = false;
+	}
+	
+	if (object1.rightCollision != object2.leftCollision) (object1.bottomCollision != object2.topCollision) {
+		object1.colliding = false;
+		object2.colliding = false;
+	}
+	
+	if (object1.leftCollision >= object2.rightCollision) (object1.topCollision <= object2.bottomCollision) {
+		object1.colliding = true;
+		object2.colliding = true;
+	}
+	if (object1.rightCollision <= object2.leftCollision) (object1.topCollision <= object2.bottomCollision) {
+		object1.colliding = true;
+		object2.colliding = true;
+	}
+	
+	if (object1.leftCollision >= object2.rightCollision) (object1.bottomCollision >= object2.topCollision) {
+		object1.colliding = true;
+		object2.colliding = true;
+	}
+	
+	if (object1.rightCollision <= object2.leftCollision) (object1.bottomCollision >= object2.topCollision) {
+		object1.colliding = true;
+		object2.colliding = true;
+	}
 }
