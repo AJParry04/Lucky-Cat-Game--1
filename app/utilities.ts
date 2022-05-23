@@ -125,3 +125,50 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 		object2.colliding = true;
 	}
 };
+
+export const objectKeyboard = (object: canvasImage, element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
+	const vel: number = (velMod * elapsed) / 1000;
+	if (element === undefined) {
+		element = window;
+	}
+	if (eventType === undefined) {
+		eventType = "keydown";
+	}
+	if (key1 === undefined) {
+		key1 = "";
+	}
+	if (key2 === undefined) {
+		key2 = "";
+	}
+	if (key3 === undefined) {
+		key3 = "";
+	}
+	if (key4 === undefined) {
+		key4 = "";
+	}
+	element.addEventListener(eventType, (event) => {
+		if (event.key === key1) {
+			object.vy = 0;
+			object.vx += vel;
+		}
+
+		if (event.key === key2) {
+			object.vy = 0;
+			object.vx -= vel;
+		}
+
+		if (event.key === key3) {
+			object.vx = 0;
+			object.vy -= vel;
+		}
+
+		if (event.key === key4) {
+			object.vx = 0;
+			object.vy += vel;
+		}
+
+		if (event.key != key1, key2, key3, key4) {
+			return
+		}
+	});
+}
