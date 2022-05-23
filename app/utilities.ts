@@ -49,29 +49,25 @@ export const drawCanvasSprite = (object: canvasImage, panw: number, panh: number
 /*
 Handles world collisions for an object. 
 left top right and bottom should be 0, 0, canvas.width, canvas.height. 
-resetvx and vy is how fast we want it to move after resetting. 
-resetMod is an offset to avoid errors.
 */
-export const worldCollisionDetection = (object: canvasImage, left: number, top: number, right: number, bottom: number, resetvx: number, resetvy: number, resetMod: number) => {
-	if (object.y > (bottom)) {
-		object.y = top + resetMod;
-		object.vy = resetvy;
+export const worldCollisionDetection = (object: canvasImage, left: number, top: number, right: number, bottom: number) => {
+	let colliding = false;
+	if (object.y >= bottom) {
+		colliding = true;
 	}
 
-	if (object.x < left) {
-		object.x = right - resetMod;
-		object.vx = -resetvx;
-	} //Flips vx to avoid running into infinitely teleporting back and forth.
-
-	if (object.x > right) {
-		object.x = left + resetMod;
-		object.vx = resetvx;
+	else if (object.x <= left) {
+		colliding = true;
 	}
 
-	if (object.y < top) {
-		object.y = bottom - resetMod;
-		object.vy = -resetvy;
-	}//Same as left collision.
+	else if (object.x >= right) {
+		colliding = true;
+	}
+
+	else if (object.y < top) {
+		colliding = true;
+	}
+	return colliding;
 }
 
 export const objectCollisionDetection = (object1: collision, object2: collision) => {
