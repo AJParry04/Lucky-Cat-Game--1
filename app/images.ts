@@ -1,14 +1,14 @@
 //Import image urls using vite magic sauce.
 
-import {catUrl} from "/app/assets/catSprite.webp";
-import {goldCoinUrl} from "/app/assets/goldCoin.webp";
-import {blueCoinUrl} from "/app/assets/blueCoin.webp";
-import {greenCoinUrl} from "/app/assets/greenCoin.webp";
-import {pinkCoinUrl} from "/app/assets/pinkCoin.webp";
-import {silverCoinUrl} from "/app/assets/silverCoin.webp";
-import {angelUrl} from "/app/assets/angel.webp";
-import {muscleUrl} from "/app/assets/muscle.webp";
-import {sharkUrl} from "/app/assets/shark.webp";
+import { catUrl } from "/app/assets/catSprite.webp";
+import { goldCoinUrl } from "/app/assets/goldCoin.webp";
+import { blueCoinUrl } from "/app/assets/blueCoin.webp";
+import { greenCoinUrl } from "/app/assets/greenCoin.webp";
+import { pinkCoinUrl } from "/app/assets/pinkCoin.webp";
+import { silverCoinUrl } from "/app/assets/silverCoin.webp";
+import { angelUrl } from "/app/assets/angel.webp";
+import { muscleUrl } from "/app/assets/muscle.webp";
+import { sharkUrl } from "/app/assets/shark.webp";
 
 /*
 Setup assetdiv and create a fragment to improve performance. 

@@ -67,7 +67,7 @@ export const worldCollisionDetection = (object: collision, left: number, top: nu
 	if (object.topCollision > top) {
 		object.colliding = false;
 	}
-	
+
 	if (object.bottomCollision >= bottom) {
 		object.colliding = true;
 	}
@@ -91,22 +91,22 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 		object1.colliding = false;
 		object2.colliding = false;
 	}
-	
+
 	if (object1.rightCollision > object2.leftCollision) (object1.topCollision > object2.bottomCollision); {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
-	
+
 	if (object1.leftCollision < object2.rightCollision) (object1.bottomCollision < object2.topCollision); {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
-	
+
 	if (object1.rightCollision > object2.leftCollision) (object1.bottomCollision < object2.topCollision); {
 		object1.colliding = false;
 		object2.colliding = false;
 	}
-	
+
 	if (object1.leftCollision >= object2.rightCollision) (object1.topCollision <= object2.bottomCollision); {
 		object1.colliding = true;
 		object2.colliding = true;
@@ -115,12 +115,12 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 		object1.colliding = true;
 		object2.colliding = true;
 	}
-	
+
 	if (object1.leftCollision >= object2.rightCollision) (object1.bottomCollision >= object2.topCollision); {
 		object1.colliding = true;
 		object2.colliding = true;
 	}
-	
+
 	if (object1.rightCollision <= object2.leftCollision) (object1.bottomCollision >= object2.topCollision); {
 		object1.colliding = true;
 		object2.colliding = true;
@@ -129,29 +129,29 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 
 //key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to.
 export const objectMovementKeyboard = (object: canvasImage, element: Element, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
-	
+
 	const vel: number = (velMod * elapsed) / 1000; //1000 = ms
-	
+
 	if (element === undefined) {
 		element = canvas;
 	}
-	
+
 	if (key1 === undefined) {
 		key1 = "";
 	}
-	
+
 	if (key2 === undefined) {
 		key2 = "";
 	}
-	
+
 	if (key3 === undefined) {
 		key3 = "";
 	}
-	
+
 	if (key4 === undefined) {
 		key4 = "";
 	}
-	
+
 	element.addEventListener("keydown", (event) => {
 		if (event.key === key1) {
 			object.vy = 0;
@@ -186,20 +186,18 @@ export const objectSpriteReelKeyboard = (object: canvasImage, element: Element, 
 		element = canvas;
 	}
 	element.addEventListener("keydown", (event) => {
-	if (reel < reelMaxWidth) {
-		if (event.key === key1) {
-			reel -= reelMod;
-			drawCanvasSprite(object, reel, 0);
+		if (reel < reelMaxWidth) {
+			if (event.key === key1) {
+				reel -= reelMod;
+				drawCanvasSprite(object, reel, 0);
+			}
+			if (event.key === key2) {
+				reel += reelMod;
+				drawCanvasSprite(object, reel, 0);
+			}
 		}
-		if (event.key === key2) {
-			reel += reelMod;
-			drawCanvasSprite(object, reel, 0);
+		if (reel >= reelMaxWidth) {
+			reel = 0;
 		}
-	}
-	if (reel >= reelMaxWidth) {
-		reel = 0;
-	}
-});
+	});
 };
-
-//To do, add a multi option updateObject and animateObject function.
