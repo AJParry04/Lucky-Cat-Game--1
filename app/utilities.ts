@@ -128,7 +128,7 @@ export const objectCollisionDetection = (object1: collision, object2: collision)
 };
 
 //key1,key2,key3,key4 = d,a,w,s , velMod is a velocity modifier, elapsed is the time elapsed since the last update (I think?) eventType is the type of keystroke event. element is what element the listener is added to.
-export const objectKeyboard = (object: canvasImage, element: Element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
+export const objectMovementKeyboard = (object: canvasImage, element: Element, eventType: string, key1: string, key2: string, key3: string, key4: string, velMod: number, elapsed: number) => {
 	const vel: number = (velMod * elapsed) / 1000;
 	if (element === undefined) {
 		element = canvas;
