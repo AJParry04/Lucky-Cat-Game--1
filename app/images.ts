@@ -61,3 +61,5 @@ for (let i: number = imageList.length; --i;) {
 
 //Append fragment to assetDiv.
 assetDiv.appendChild(fragment);
+
+assetDiv.style.display = 'none';
