@@ -1,5 +1,8 @@
-import {ctx} from '../canvas'
 import {drawCanvasImage} from '../utilities'
-import {objectList} from '../globals'
+import {imageMap} from '../images'
+import {objectMap} from '../globals'
 
-drawCanvasImage(objectList[2]);
+imageMap.catImage.addEventListener("load", () => {
+	drawCanvasImage(objectMap.cat);
+})
+

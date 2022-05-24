@@ -1,4 +1,4 @@
-import {imageList} from "./images";
+import {imageMap} from "./images";
 
 //Default values to fallback on.
 const defMoveSpeed: number = 10;
@@ -24,6 +24,7 @@ export type collision = {
 	bottomCollision: number,
 	colliding: boolean,
 };
+
 export const angel: canvasImage = {
 	x: defPos,
 	y: defPos,
@@ -31,7 +32,7 @@ export const angel: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[0],
+	image: imageMap.angelImage,
 };
 
 export const blueCoin: canvasImage = {
@@ -41,7 +42,7 @@ export const blueCoin: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[1],
+	image: imageMap.blueCoinImage,
 };
 
 export const cat: canvasImage = {
@@ -51,7 +52,7 @@ export const cat: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[2],
+	image: imageMap.catImage,
 };
 
 export const goldCoin: canvasImage = {
@@ -61,7 +62,7 @@ export const goldCoin: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[3],
+	image: imageMap.goldCoinImage,
 };
 
 export const greenCoin: canvasImage = {
@@ -71,7 +72,7 @@ export const greenCoin: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[4],
+	image: imageMap.greenCoinImage,
 };
 
 export const muscle: canvasImage = {
@@ -81,7 +82,7 @@ export const muscle: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[5],
+	image: imageMap.muscleImage,
 };
 
 export const pinkCoin: canvasImage = {
@@ -91,7 +92,7 @@ export const pinkCoin: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[6],
+	image: imageMap.pinkCoinImage,
 };
 
 export const shark: canvasImage = {
@@ -101,7 +102,7 @@ export const shark: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[7],
+	image: imageMap.sharkImage,
 };
 
 export const silverCoin: canvasImage = {
@@ -111,7 +112,7 @@ export const silverCoin: canvasImage = {
 	vy: defMoveSpeed,
 	sizex: defSize,
 	sizey: defSize,
-	image: imageList[8],
+	image: imageMap.silverCoinImage,
 };
 
 export const angelCollision: collision = {
@@ -186,7 +187,7 @@ export const silverCollision: collision = {
 	colliding: false,
 };
 
-export const objectList: canvasImage[] = [
+export const objectMap = {
 	angel,
 	blueCoin,
 	cat,
@@ -196,9 +197,9 @@ export const objectList: canvasImage[] = [
 	pinkCoin,
 	shark,
 	silverCoin
-];
+};
 
-export const collisionList: collision[] = [
+export const collisionMap = {
 	angelCollision,
 	blueCollision,
 	catCollision,
@@ -208,4 +209,4 @@ export const collisionList: collision[] = [
 	pinkCollision,
 	sharkCollision,
 	silverCollision
-]
+}
