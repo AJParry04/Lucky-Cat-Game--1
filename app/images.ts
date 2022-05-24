@@ -1,14 +1,14 @@
 //Import image urls using vite magic sauce.
 
-import { catUrl } from "/app/assets/catSprite.webp";
-import { goldCoinUrl } from "/app/assets/goldCoin.webp";
-import { blueCoinUrl } from "/app/assets/blueCoin.webp";
-import { greenCoinUrl } from "/app/assets/greenCoin.webp";
-import { pinkCoinUrl } from "/app/assets/pinkCoin.webp";
-import { silverCoinUrl } from "/app/assets/silverCoin.webp";
-import { angelUrl } from "/app/assets/angel.webp";
-import { muscleUrl } from "/app/assets/muscle.webp";
-import { sharkUrl } from "/app/assets/shark.webp";
+import { catUrl } from "./assets/catSprite.webp";
+import { goldCoinUrl } from "./assets/goldCoin.webp";
+import { blueCoinUrl } from "./assets/blueCoin.webp";
+import { greenCoinUrl } from "./assets/greenCoin.webp";
+import { pinkCoinUrl } from "./assets/pinkCoin.webp";
+import { silverCoinUrl } from "./assets/silverCoin.webp";
+import { angelUrl } from "./assets/angel.webp";
+import { muscleUrl } from "./assets/muscle.webp";
+import { sharkUrl } from "./assets/shark.webp";
 
 /*
 Setup assetdiv and create a fragment to improve performance. 
@@ -61,3 +61,5 @@ for (let i: number = imageList.length; --i;) {
 
 //Append fragment to assetDiv.
 assetDiv.appendChild(fragment);
+
+assetDiv.style.display = 'none';
