@@ -7,11 +7,14 @@ imageMap.catImage.addEventListener("load", () => {
 	drawCanvasSprite(objectMap.cat, 64, 0);
 })
 
+const updateCat = (elapsed: number) => {
+	
+}
 
 /*
 let startTime = null
 
-function animate(timestamp: number = 0) {
+function animateCat(timestamp: number = 0) {
   let elapsed;
   if (timestamp) {
     if (!startTime) {
