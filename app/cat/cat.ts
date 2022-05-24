@@ -11,6 +11,10 @@ const updateCat = (elapsed: number) => {
 	
 }
 
+export function moveCat (elapsed:number){
+  
+}
+
 /*
 let startTime = null
 
