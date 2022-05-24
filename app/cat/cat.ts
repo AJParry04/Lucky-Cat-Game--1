@@ -1,8 +1,8 @@
-import {drawCanvasImage} from '../utilities'
+import {drawCanvasImage, drawCanvasSprite} from '../utilities'
 import {imageMap} from '../images'
 import {objectMap} from '../globals'
 
 imageMap.catImage.addEventListener("load", () => {
-	drawCanvasImage(objectMap.cat);
+	drawCanvasSprite(objectMap.cat, 64, 0);
 })
 
