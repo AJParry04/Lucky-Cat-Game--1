@@ -19,18 +19,18 @@ const assetDiv: HTMLDivElement = document.querySelector("#assets");
 const fragment: DocumentFragment = document.createDocumentFragment();
 
 //Define images.
-const angelImage: HTMLImageElement = document.createElement("img");
-const blueCoinImage: HTMLImageElement = document.createElement("img");
-const catImage: HTMLImageElement = document.createElement("img");
-const goldCoinImage: HTMLImageElement = document.createElement("img");
-const greenCoinImage: HTMLImageElement = document.createElement("img");
-const muscleImage: HTMLImageElement = document.createElement("img");
-const pinkCoinImage: HTMLImageElement = document.createElement("img");
-const sharkImage: HTMLImageElement = document.createElement("img");
-const silverCoinImage: HTMLImageElement = document.createElement("img");
+export const angelImage: HTMLImageElement = document.createElement("img");
+export const blueCoinImage: HTMLImageElement = document.createElement("img");
+export const catImage: HTMLImageElement = document.createElement("img");
+export const goldCoinImage: HTMLImageElement = document.createElement("img");
+export const greenCoinImage: HTMLImageElement = document.createElement("img");
+export const muscleImage: HTMLImageElement = document.createElement("img");
+export const pinkCoinImage: HTMLImageElement = document.createElement("img");
+export const sharkImage: HTMLImageElement = document.createElement("img");
+export const silverCoinImage: HTMLImageElement = document.createElement("img");
 
 //Create lists to iterate over.
-const urlList = [
+export const urlList = [
 	angelUrl,
 	blueCoinUrl,
 	catUrl,

@@ -24,7 +24,7 @@ export type collision = {
 	bottomCollision: number,
 	colliding: boolean,
 };
-const angel: canvasImage = {
+export const angel: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -34,7 +34,7 @@ const angel: canvasImage = {
 	image: imageList[0],
 };
 
-const blueCoin: canvasImage = {
+export const blueCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -44,7 +44,7 @@ const blueCoin: canvasImage = {
 	image: imageList[1],
 };
 
-const cat: canvasImage = {
+export const cat: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -54,7 +54,7 @@ const cat: canvasImage = {
 	image: imageList[2],
 };
 
-const goldCoin: canvasImage = {
+export const goldCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -64,7 +64,7 @@ const goldCoin: canvasImage = {
 	image: imageList[3],
 };
 
-const greenCoin: canvasImage = {
+export const greenCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -74,7 +74,7 @@ const greenCoin: canvasImage = {
 	image: imageList[4],
 };
 
-const muscle: canvasImage = {
+export const muscle: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -84,7 +84,7 @@ const muscle: canvasImage = {
 	image: imageList[5],
 };
 
-const pinkCoin: canvasImage = {
+export const pinkCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -94,7 +94,7 @@ const pinkCoin: canvasImage = {
 	image: imageList[6],
 };
 
-const shark: canvasImage = {
+export const shark: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -104,7 +104,7 @@ const shark: canvasImage = {
 	image: imageList[7],
 };
 
-const silverCoin: canvasImage = {
+export const silverCoin: canvasImage = {
 	x: defPos,
 	y: defPos,
 	vx: defMoveSpeed,
@@ -114,7 +114,7 @@ const silverCoin: canvasImage = {
 	image: imageList[8],
 };
 
-const angelCollision: collision = {
+export const angelCollision: collision = {
 	leftCollision: angel.x,
 	topCollision: angel.y,
 	rightCollision: angel.x + angel.sizex,
@@ -122,7 +122,7 @@ const angelCollision: collision = {
 	colliding: false,
 };
 
-const blueCollision: collision = {
+export const blueCollision: collision = {
 	leftCollision: blueCoin.x,
 	topCollision: blueCoin.y,
 	rightCollision: blueCoin.x + blueCoin.sizex,
@@ -130,7 +130,7 @@ const blueCollision: collision = {
 	colliding: false,
 };
 
-const catCollision: collision = {
+export const catCollision: collision = {
 	leftCollision: cat.x,
 	topCollision: cat.y,
 	rightCollision: cat.x + cat.sizex,
@@ -138,7 +138,7 @@ const catCollision: collision = {
 	colliding: false,
 };
 
-const goldCollision: collision = {
+export const goldCollision: collision = {
 	leftCollision: goldCoin.x,
 	topCollision: goldCoin.y,
 	rightCollision: goldCoin.x + goldCoin.sizex,
@@ -146,7 +146,7 @@ const goldCollision: collision = {
 	colliding: false,
 };
 
-const greenCollision: collision = {
+export const greenCollision: collision = {
 	leftCollision: greenCoin.x,
 	topCollision: greenCoin.y,
 	rightCollision: greenCoin.x + greenCoin.sizex,
@@ -154,7 +154,7 @@ const greenCollision: collision = {
 	colliding: false,
 };
 
-const muscleCollision: collision = {
+export const muscleCollision: collision = {
 	leftCollision: muscle.x,
 	topCollision: muscle.y,
 	rightCollision: muscle.x + muscle.sizex,
@@ -162,7 +162,7 @@ const muscleCollision: collision = {
 	colliding: false,
 };
 
-const pinkCollision: collision = {
+export const pinkCollision: collision = {
 	leftCollision: pinkCoin.x,
 	topCollision: pinkCoin.y,
 	rightCollision: pinkCoin.x + pinkCoin.sizex,
@@ -170,7 +170,7 @@ const pinkCollision: collision = {
 	colliding: false,
 };
 
-const sharkCollision: collision = {
+export const sharkCollision: collision = {
 	leftCollision: shark.x,
 	topCollision: shark.y,
 	rightCollision: shark.x + shark.sizex,
@@ -178,7 +178,7 @@ const sharkCollision: collision = {
 	colliding: false,
 };
 
-const silverCollision: collision = {
+export const silverCollision: collision = {
 	leftCollision: silverCoin.x,
 	topCollision: silverCoin.y,
 	rightCollision: silverCoin.x + silverCoin.sizex,
