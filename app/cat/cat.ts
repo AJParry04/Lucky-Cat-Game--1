@@ -3,10 +3,6 @@ import {imageMap} from '../images'
 import {objectMap} from '../globals'
 import {ctx} from '../canvas'
 
-imageMap.catImage.addEventListener("load", () => {
-	drawCanvasSprite(objectMap.cat, 64, 0);
-})
-
 const updateCat = (elapsed: number) => {
 	
 }
@@ -37,3 +33,7 @@ function animateCat(timestamp: number = 0) {
 
 requestAnimationFrame(animate)
 */
+
+imageMap.catImage.addEventListener("load", () => {
+	drawCanvasSprite(objectMap.cat, 64, 0);
+})
