@@ -45,7 +45,7 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
 		object.sizey
 	); //Draws sprite.
 };
-
+ 
 /*
 Handles world collisions for an object. 
 left top right and bottom should be 0, 0, canvas.width, canvas.height.
