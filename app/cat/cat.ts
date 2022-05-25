@@ -1,15 +1,31 @@
 import {drawCanvasImage, drawCanvasSprite} from '../utilities'
 import {imageMap} from '../images'
-import {objectMap} from '../globals'
+import {objectMap, cat} from '../globals'
 import {ctx} from '../canvas'
+import {canvas} from '../canvas'
+
 
 const updateCat = (elapsed: number) => {
 	
 }
 
 export function moveCat (elapsed:number){
-  
+  if (gravity) {
+    cat.vy -= 5;
+  } else {
+    cat.vy += 5;
+  }
 }
+
+let gravity = false 
+
+canvas.addEventListener ("mousedown", function (event){
+  gravity = true;
+});
+
+canvas.addEventListener("mouseup", function (event){
+  gravity = false;
+});
 
 /*
 let startTime = null
