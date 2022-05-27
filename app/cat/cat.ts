@@ -1,33 +1,33 @@
-import {drawCanvasImage, drawCanvasSprite} from '../utilities'
-import {imageMap} from '../images'
-import {objectMap, cat} from '../globals'
-import {ctx} from '../canvas'
-import {canvas} from '../canvas'
+import { drawCanvasImage, drawCanvasSprite } from '../utilities'
+import { imageMap } from '../images'
+import { objectMap, cat } from '../globals'
+import { ctx } from '../canvas'
+import { canvas } from '../canvas'
 
 
 const updateCat = (elapsed: number) => {
-	
+
 }
 
-canvas.addEventListener ("mousedown", function (event){
+canvas.addEventListener("mousedown", function(event) {
   gravity = true;
 });
 
-canvas.addEventListener("mouseup", function (event){
+canvas.addEventListener("mouseup", function(event) {
   gravity = false;
 });
 
-export function moveCat (elapsed:number){
+export function moveCat(elapsed: number) {
   if (gravity) {
     cat.vy -= 5;
   } else {
     cat.vy += 5;
   }
-  if (cat.y < 0){
+  if (cat.y < 0) {
     cat.y = 0
     cat.vy = 0;
   }
-  if (cat.y > 430){
+  if (cat.y > 430) {
     cat.y = 430
     cat.vy = 0
   }
@@ -35,7 +35,7 @@ export function moveCat (elapsed:number){
   console.log(cat.vy);
 }
 
-let gravity = false 
+let gravity = false
 
 
 
@@ -62,5 +62,5 @@ requestAnimationFrame(animate)
 
 
 imageMap.catImage.addEventListener("load", () => {
-	drawCanvasSprite(objectMap.cat, 64, 0);
+  drawCanvasSprite(objectMap.cat, 64, 0);
 })
