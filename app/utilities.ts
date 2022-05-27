@@ -45,6 +45,7 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
 		object.sizey
 	); //Draws sprite.
 };
+<<<<<<< HEAD
  
 /*
 Handles world collisions for an object. 
@@ -84,6 +85,8 @@ export function worldCollisionDetection(object: collision, left: number, top: nu
 		object.colliding = true;
 	}
 };
+=======
+>>>>>>> origin/main
 
 //Hopefully working object collision!
 export function objectCollisionDetection(object1: collision, object2: collision) {

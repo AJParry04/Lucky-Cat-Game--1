@@ -7,6 +7,3 @@
   font-size : 60px;
   margin-top: 60px;
 }
-canvas {
-	background-image: var(--current-image);
-}

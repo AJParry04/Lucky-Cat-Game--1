@@ -10,10 +10,20 @@ const updateCat = (elapsed: number) => {
 }
 
 export function moveCat (elapsed:number){
+  cat.y += (cat.vy * elapsed / 1000)
   if (gravity) {
     cat.vy -= 5;
   } else {
     cat.vy += 5;
+  }
+    if (cat.y < 0){
+    cat.y = 0
+    cat.vy = 0;
+  }
+  if (cat.y >= 430){
+    cat.y = 430
+    cat.vy = 0
+    
   }
 }
 
@@ -40,10 +50,10 @@ function animate(timestamp: number = 0) {
       elapsed = timestamp - startTime
       startTime = timestamp;
     }
-    //Move(elapsed); //plug in move code here
+    moveCat(elapsed); //plug in move code here
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawCanvasSprite();
+  drawCanvasSprite(objectMap.cat, 64, 0);
   requestAnimationFrame(animate)
 }
 
