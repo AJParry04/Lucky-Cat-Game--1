@@ -3,7 +3,7 @@ import {imageMap} from "./images";
 //Default values to fallback on.
 const defMoveSpeed: number = 10;
 const defSize: number = 64;
-const defPos: number = 0;
+const defPos: number = 5;
 
 //Making our own type for a canvas image.
 export type canvasImage = {

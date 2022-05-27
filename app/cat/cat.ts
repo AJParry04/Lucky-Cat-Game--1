@@ -9,26 +9,6 @@ const updateCat = (elapsed: number) => {
 	
 }
 
-export function moveCat (elapsed:number){
-  cat.y += (cat.vy * elapsed / 1000)
-  if (gravity) {
-    cat.vy -= 5;
-  } else {
-    cat.vy += 5;
-  }
-    if (cat.y < 0){
-    cat.y = 0
-    cat.vy = 0;
-  }
-  if (cat.y >= 430){
-    cat.y = 430
-    cat.vy = 0
-    
-  }
-}
-
-let gravity = false 
-
 canvas.addEventListener ("mousedown", function (event){
   gravity = true;
 });
@@ -36,6 +16,27 @@ canvas.addEventListener ("mousedown", function (event){
 canvas.addEventListener("mouseup", function (event){
   gravity = false;
 });
+
+export function moveCat (elapsed:number){
+  if (gravity) {
+    cat.vy -= 5;
+  } else {
+    cat.vy += 5;
+  }
+  if (cat.y < 0){
+    cat.y = 0
+    cat.vy = 0;
+  }
+  if (cat.y > 430){
+    cat.y = 430
+    cat.vy = 0
+  }
+  cat.y += (cat.vy * elapsed / 1000)
+  console.log(cat.vy);
+}
+
+let gravity = false 
+
 
 
 let startTime = null
