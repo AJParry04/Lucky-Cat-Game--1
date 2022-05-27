@@ -46,45 +46,6 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
     ); //Draws sprite.
 };
 
-/*
-Handles world collisions for an object. 
-left top right and bottom should be 0, 0, canvas.width, canvas.height.
-Specifically used to only flip one objects colliding switch when colliding with the world.
-*/
-export function worldCollisionDetection(object: collision, left: number, top: number, right: number, bottom: number) {
-    if (object.bottomCollision < bottom) {
-        object.colliding = false;
-    }
-
-    if (object.leftCollision > left) {
-        object.colliding = false;
-    }
-
-    if (object.rightCollision < right) {
-        object.colliding = false;
-    }
-
-    if (object.topCollision > top) {
-        object.colliding = false;
-    }
-
-    if (object.bottomCollision >= bottom) {
-        object.colliding = true;
-    }
-
-    if (object.leftCollision <= left) {
-        object.colliding = true;
-    }
-
-    if (object.rightCollision >= right) {
-        object.colliding = true;
-    }
-
-    if (object.topCollision <= top) {
-        object.colliding = true;
-    }
-};
-
 //Hopefully working object collision!
 export function objectCollisionDetection(object1: collision, object2: collision) {
     if (object1.leftCollision < object2.rightCollision) (object1.topCollision > object2.bottomCollision); {
