@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="./main.js"></script>
+    <!--
 		<script type = "module" src = "./app/canvas.ts"></script>
 		<script type = "module" src = "./app/images.ts"></script>
 		<script type = "module" src = "./app/globals.ts"></script>
@@ -15,7 +18,19 @@
 		<script type = "module" src = "./app/powerups/muscle.ts"></script>
 		<script type = "module" src = "./app/status/lives.ts"></script>
 		<script type = "module" src = "./app/status/timer.ts"></script>
+    -->
     <title>Lucky Cat</title>
+    <div style="
+      background-position: 0px
+      width: 1000px;
+      height: 1400px;      
+      background-image: url('../app/assets/background.webp');            
+      /* The next bit of style just places our dude 
+           in the center bottom of the BG */
+      display: grid;
+      place-content: end center;
+  ">
+  </div>
   </head>
   <body>
     <div id="app"></div>
