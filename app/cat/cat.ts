@@ -27,10 +27,10 @@ canvas.addEventListener("mouseup", function (event){
   gravity = false;
 });
 
-/*
+
 let startTime = null
 
-function animateCat(timestamp: number = 0) {
+function animate(timestamp: number = 0) {
   let elapsed;
   if (timestamp) {
     if (!startTime) {
@@ -48,8 +48,8 @@ function animateCat(timestamp: number = 0) {
 }
 
 requestAnimationFrame(animate)
-*/
+
 
 imageMap.catImage.addEventListener("load", () => {
 	drawCanvasSprite(objectMap.cat, 64, 0);
-});
+})
