@@ -2,8 +2,8 @@
 
 
 
-export const canvas:HTMLCanvasElement = document.createElement("canvas"); //Dumb error, ignore.
-export const ctx:CanvasRenderingContext2D = canvas.getContext("2d");
+export const canvas: HTMLCanvasElement = document.createElement("canvas"); //Dumb error, ignore.
+export const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 const style: CSSStyleDeclaration = canvas.style;
 const app: HTMLDivElement = document.querySelector("#app");
 

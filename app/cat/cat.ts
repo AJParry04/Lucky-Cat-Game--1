@@ -52,4 +52,4 @@ requestAnimationFrame(animate)
 
 imageMap.catImage.addEventListener("load", () => {
 	drawCanvasSprite(objectMap.cat, 64, 0);
-})
+});

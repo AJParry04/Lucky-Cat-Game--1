@@ -31,57 +31,57 @@ export const silverCoinImage: HTMLImageElement = document.createElement("img");
 
 //Create lists to iterate over.
 export const urlMap = {
-	angelUrl,
-	blueCoinUrl,
-	catUrl,
-	goldCoinUrl,
-	greenCoinUrl,
-	muscleUrl,
-	pinkCoinUrl,
-	sharkUrl,
-	silverCoinUrl
+    angelUrl,
+    blueCoinUrl,
+    catUrl,
+    goldCoinUrl,
+    greenCoinUrl,
+    muscleUrl,
+    pinkCoinUrl,
+    sharkUrl,
+    silverCoinUrl
 }; //Cannot type this because it uses vite magic to work.
 
 export const imageMap = {
-	angelImage,
-	blueCoinImage,
-	catImage,
-	goldCoinImage,
-	greenCoinImage,
-	muscleImage,
-	pinkCoinImage,
-	sharkImage,
-	silverCoinImage
-}
+    angelImage,
+    blueCoinImage,
+    catImage,
+    goldCoinImage,
+    greenCoinImage,
+    muscleImage,
+    pinkCoinImage,
+    sharkImage,
+    silverCoinImage
+};
 
 const urlList = [
-	angelUrl,
-	blueCoinUrl,
-	catUrl,
-	goldCoinUrl,
-	greenCoinUrl,
-	muscleUrl,
-	pinkCoinUrl,
-	sharkUrl,
-	silverCoinUrl
+    angelUrl,
+    blueCoinUrl,
+    catUrl,
+    goldCoinUrl,
+    greenCoinUrl,
+    muscleUrl,
+    pinkCoinUrl,
+    sharkUrl,
+    silverCoinUrl
 ];
 
 const imageList: HTMLImageElement[] = [
-	angelImage,
-	blueCoinImage,
-	catImage,
-	goldCoinImage,
-	greenCoinImage,
-	muscleImage,
-	pinkCoinImage,
-	sharkImage,
-	silverCoinImage
+    angelImage,
+    blueCoinImage,
+    catImage,
+    goldCoinImage,
+    greenCoinImage,
+    muscleImage,
+    pinkCoinImage,
+    sharkImage,
+    silverCoinImage
 ];
 
-//Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment and assemble.
+//Iterate over fragment.
 for (let i: number = 0; ++i < imageList.length;) {
-	imageList[i].src = urlList[i];
-	fragment.appendChild(imageList[i]);
+    imageList[i].src = urlList[i];
+    fragment.appendChild(imageList[i]);
 }
 
 //Append fragment to assetDiv.
