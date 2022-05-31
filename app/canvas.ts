@@ -6,8 +6,8 @@ export const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 const style: CSSStyleDeclaration = canvas.style;
 const app: HTMLDivElement = document.querySelector("#app");
 
-export const width: number = 1280;
-export const height: number = 720;
+export const width: number = 1000;
+export const height: number = 1400;
 
 canvas.width = width;
 canvas.height = height;

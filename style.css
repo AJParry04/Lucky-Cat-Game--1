@@ -6,4 +6,12 @@
   color: #0080ff;
   font-size : 60px;
   margin-top: 60px;
+  position: relative;; 
+}
+#app>* {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1280px;
+  height: 720px;
 }
