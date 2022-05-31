@@ -66,3 +66,17 @@ requestAnimationFrame(animate)
 imageMap.catImage.addEventListener("load", () => {
   drawCanvasSprite(objectMap.cat, 64, 0);
 })
+
+//animation
+
+function animateCat () {
+    ctx.clearRect(0, 0, 64, 64);
+    ctx.drawImage(
+     cat,  
+      offset, 0, 
+      cat.sizex, cat.sizey, 
+      0, 0, 
+      cat.sizex, cat.sizey 
+      );          
+    window.requestAnimationFrame(animateCanvas);
+  }
