@@ -14,6 +14,7 @@ export type canvasImage = {
   sizex: number,
   sizey: number,
   image: HTMLImageElement,
+  scale?: number
 };
 
 //Making a collision type for more accurate collision detection and handling.
@@ -53,6 +54,7 @@ export const cat: canvasImage = {
   sizex: defSize,
   sizey: defSize,
   image: imageMap.catImage,
+  scale : 4.5,
 };
 
 export const goldCoin: canvasImage = {

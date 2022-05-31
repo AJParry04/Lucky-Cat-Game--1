@@ -2,7 +2,7 @@ import { drawCanvasImage, drawCanvasSprite } from '../utilities'
 import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
-import { canvas } from '../canvas'
+import { canvas, height } from '../canvas'
 
 
 const updateCat = (elapsed: number) => {
@@ -27,8 +27,10 @@ export function moveCat(elapsed: number) {
     cat.y = 0
     cat.vy = 0;
   }
-  if (cat.y > 1300) {
-    cat.y = 1300
+//  cat.scale += 0.01;
+  let maxheight = canvas.height - (cat.sizey*cat.scale)
+  if (cat.y > maxheight) {
+    cat.y = maxheight
     cat.vy = 0
   }
   cat.y += (cat.vy * elapsed / 1000)

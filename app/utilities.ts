@@ -32,17 +32,17 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
     object.sizex * clearMod,
     object.sizey * clearMod
   ); //Clear around the object.
-
+  let scale = object.scale || 1;
   ctx.drawImage(
     object.image,
     panw,
     panh,
-    object.sizex,
+    object.sizex, // source size
     object.sizey,
     object.x,
     object.y,
-    object.sizex,
-    object.sizey
+    object.sizex*scale, // destination size
+    object.sizey*scale 
   ); //Draws sprite.
 };
 
