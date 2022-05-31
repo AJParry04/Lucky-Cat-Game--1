@@ -27,8 +27,8 @@ export function moveCat(elapsed: number) {
     cat.y = 0
     cat.vy = 0;
   }
-  if (cat.y > 430) {
-    cat.y = 430
+  if (cat.y > 1300) {
+    cat.y = 1300
     cat.vy = 0
   }
   cat.y += (cat.vy * elapsed / 1000)
