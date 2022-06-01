@@ -7,7 +7,7 @@ let div = document.querySelector('#background');
 
 let frame = 0; // current frame
 let nframes = 2000; // number of frames
-let size = 64; // size of each frame
+let size = 10; // size of each frame
 
 function showNextFrame () {
   frame = (frame + 1) % nframes; // add one, loop back to zero
