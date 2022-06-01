@@ -44,6 +44,12 @@ let gravity = false
 let startTime = null
 
 let iterateSlideReel = 0;
+
+function addSlide() {
+  iterateSlideReel += 64
+}
+
+setInterval(addSlide, 2500/12);
 function animate(timestamp: number = 0) {
   let elapsed;
   if (timestamp) {
@@ -58,7 +64,7 @@ function animate(timestamp: number = 0) {
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
-  iterateSlideReel += 64;
+  drawGoldCoin()
   if (iterateSlideReel >= 768) {
     iterateSlideReel = 0;
   }
