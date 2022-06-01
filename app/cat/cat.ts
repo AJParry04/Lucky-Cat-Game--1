@@ -3,7 +3,7 @@ import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
 import { canvas, height } from '../canvas'
-
+import {drawGoldCoin} from '../coins/coin'
 
 const updateCat = (elapsed: number) => {
 
@@ -43,6 +43,7 @@ let gravity = false
 
 let startTime = null
 
+let iterateSlideReel = 0;
 function animate(timestamp: number = 0) {
   let elapsed;
   if (timestamp) {
@@ -56,27 +57,16 @@ function animate(timestamp: number = 0) {
     moveCat(elapsed); //plug in move code here
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawCanvasSprite(objectMap.cat, 64, 0);
-  requestAnimationFrame(animate)
+  drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
+  iterateSlideReel += 64;
+  if (iterateSlideReel >= 768) {
+    iterateSlideReel = 0;
+  }
+  requestAnimationFrame(animate);
 }
 
-requestAnimationFrame(animate)
-
+requestAnimationFrame(animate);
 
 imageMap.catImage.addEventListener("load", () => {
-  drawCanvasSprite(objectMap.cat, 64, 0);
+    drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
 })
-
-//animation
-
-function animateCat () {
-    ctx.clearRect(0, 0, 64, 64);
-    ctx.drawImage(
-     cat,  
-      offset, 0, 
-      cat.sizex, cat.sizey, 
-      0, 0, 
-      cat.sizex, cat.sizey 
-      );          
-    window.requestAnimationFrame(animateCanvas);
-  }
