@@ -19,9 +19,9 @@ canvas.addEventListener("mouseup", function(event) {
 
 export function moveCat(elapsed: number) {
   if (gravity) {
-    cat.vy -= 5;
+    cat.vy -= 15;
   } else {
-    cat.vy += 5;
+    cat.vy += 15;
   }
   if (cat.y < 0) {
     cat.y = 0
