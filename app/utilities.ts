@@ -1,18 +1,26 @@
 //Import type and context.
 
 import { canvasImage, collision } from "./globals";
-import { ctx } from "./canvas";
+import { ctx, canvas } from "./canvas";
 
 //Serves as our offset multiplier for clearing the image to avoid artifacts. Not letting others set this as this value has been tried and stays true.
 const clearMod: number = 2;
-
+export function drawCanvasImageNoClear(object: canvasImage) {
+  ctx.drawImage(
+    object.image,
+    object.x,
+    object.y,
+    object.sizex,
+    object.sizey
+  ); //Draw the object
+};
 //Draws a simple canvas image with no animations.
 export function drawCanvasImage(object: canvasImage) {
   ctx.clearRect(
-    object.x - object.sizex / clearMod,
-    object.y - object.sizey / clearMod,
-    object.sizex * clearMod,
-    object.sizey * clearMod
+    0,
+    0,
+    canvas.width,
+    canvas.height
   ); //Clear around the object.
 
   ctx.drawImage(
@@ -27,8 +35,8 @@ export function drawCanvasImage(object: canvasImage) {
 //Draws a sprite sheet with inputs for the panning width and height.
 export function drawCanvasSprite(object: canvasImage, panw: number, panh: number) {
   ctx.clearRect(
-    object.x - object.sizex / clearMod,
-    object.y - object.sizey / clearMod,
+    0,
+    0,
     object.sizex * clearMod,
     object.sizey * clearMod
   ); //Clear around the object.

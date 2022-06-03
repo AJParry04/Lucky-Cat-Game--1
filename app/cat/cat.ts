@@ -3,7 +3,7 @@ import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
 import { canvas, height } from '../canvas'
-import {drawGoldCoin} from '../coins/coin'
+import {drawGoldCoin, moveCoin} from '../coins/coin'
 
 const updateCat = (elapsed: number) => {
 
@@ -34,7 +34,7 @@ export function moveCat(elapsed: number) {
     cat.vy = 0
   }
   cat.y += (cat.vy * elapsed / 1000)
-  console.log(cat.vy);
+ // console.log(cat.vy);
 }
 
 let gravity = false
@@ -50,6 +50,7 @@ function addSlide() {
 }
 
 setInterval(addSlide, 2500/12);
+
 function animate(timestamp: number = 0) {
   let elapsed;
   if (timestamp) {
@@ -61,10 +62,11 @@ function animate(timestamp: number = 0) {
       startTime = timestamp;
     }
     moveCat(elapsed); //plug in move code here
+    moveCoin(elapsed);
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
-  drawGoldCoin()
+  drawGoldCoin(elapsed)
   if (iterateSlideReel >= 768) {
     iterateSlideReel = 0;
   }
