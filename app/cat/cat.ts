@@ -3,7 +3,7 @@ import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
 import { canvas, height } from '../canvas'
-import {drawGoldCoin, moveCoin} from '../coins/coin'
+import {drawGoldCoin, moveCoin, drawCoins} from '../coins/coin'
 
 const updateCat = (elapsed: number) => {
 
@@ -66,7 +66,7 @@ function animate(timestamp: number = 0) {
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
-  drawGoldCoin(elapsed)
+  drawCoins(elapsed)
   if (iterateSlideReel >= 768) {
     iterateSlideReel = 0;
   }
