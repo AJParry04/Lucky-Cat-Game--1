@@ -1,9 +1,11 @@
-import {objectMap, goldCoin} from "../globals"
+import {objectMap, goldCoin, } from "../globals"
 import {drawCanvasImageNoClear} from "../utilities"
 
 
 objectMap.goldCoin.x = 500;
 objectMap.goldCoin.y = 700 + Math.random ()*1400-700;
+
+
 
 export function drawCoins (elasped:number){[
   drawGoldCoin(elasped),
@@ -35,7 +37,16 @@ export function drawGoldCoin(elasped: number) {
 
 export function moveCoin (elapsed:number) {
       objectMap.goldCoin.vx = -200;
-     console.log(goldCoin.vx);
-  goldCoin.x += (goldCoin.vx * elapsed / 1000)
+  objectMap.pinkCoin.vx = -200;
+   objectMap.greenCoin.vx = -200;
+  objectMap.blueCoin.vx = -200;
+   objectMap.silverCoin.vx = -200;
+  [
+  goldCoin.x += (goldCoin.vx * elapsed / 1000),
+    objectMap.pinkCoin.x += (objectMap.pinkCoin.vx*elapsed/1000),
+    objectMap.silverCoin.x +=(objectMap.silverCoin.vx*elapsed/1000),
+    objectMap.greenCoin.x += (objectMap.greenCoin.vx*elapsed/1000),
+    objectMap.blueCoin.x += (objectMap.blueCoin.vx*elapsed/1000)
+]
 }
 

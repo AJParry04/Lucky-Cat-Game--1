@@ -3,7 +3,14 @@ import { imageMap } from "./images";
 //Default values to fallback on.
 const defMoveSpeed: number = 10;
 const defSize: number = 64;
+
 const defPos: number = 5;
+const defPosY: number = 700 + Math.random ()*1400-700;;
+const defPosX : number = 500
+
+//objectMap.goldCoin.x = 500;
+//objectMap.goldCoin.y = 700 + Math.random ()*1400-700;
+
 
 //Making our own type for a canvas image.
 export type canvasImage = {
@@ -27,8 +34,8 @@ export type collision = {
 };
 
 export const angel: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -37,8 +44,8 @@ export const angel: canvasImage = {
 };
 
 export const blueCoin: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -58,8 +65,8 @@ export const cat: canvasImage = {
 };
 
 export const goldCoin: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -68,8 +75,8 @@ export const goldCoin: canvasImage = {
 };
 
 export const greenCoin: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -78,8 +85,8 @@ export const greenCoin: canvasImage = {
 };
 
 export const muscle: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -88,8 +95,8 @@ export const muscle: canvasImage = {
 };
 
 export const pinkCoin: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -98,8 +105,8 @@ export const pinkCoin: canvasImage = {
 };
 
 export const shark: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
@@ -108,8 +115,8 @@ export const shark: canvasImage = {
 };
 
 export const silverCoin: canvasImage = {
-  x: defPos,
-  y: defPos,
+  x: defPosX,
+  y: defPosY,
   vx: defMoveSpeed,
   vy: defMoveSpeed,
   sizex: defSize,
