@@ -1,6 +1,7 @@
 import {objectMap, goldCoin, } from "../globals"
 import {drawCanvasImageNoClear} from "../utilities"
-
+import {objectCollisionDetection}from "..utilities"
+import {collisionMap} from "..globals"
 
 objectMap.goldCoin.x = 500;
 objectMap.goldCoin.y = 700 + Math.random ()*1400-700;
