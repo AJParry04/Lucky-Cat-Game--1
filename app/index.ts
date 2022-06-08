@@ -3,7 +3,6 @@ import './images';
 import './globals';
 import './utilities';
 import './cat/cat';
-import './cat/keyboard';
 import './coins/coin';
 import './powerups/angel';
 import './powerups/muscle';
