@@ -5,8 +5,8 @@ const defMoveSpeed: number = 10;
 const defSize: number = 64;
 
 const defPos: number = 5;
-const defPosY: number = 700 + Math.random ()*1400-700;;
-const defPosX : number = 500
+const defPosY: number = 700 + Math.random() * 1400 - 700;;
+const defPosX: number = 500
 
 //objectMap.goldCoin.x = 500;
 //objectMap.goldCoin.y = 700 + Math.random ()*1400-700;

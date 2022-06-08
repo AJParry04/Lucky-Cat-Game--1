@@ -49,8 +49,8 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
     object.sizey,
     object.x,
     object.y,
-    object.sizex*scale, // destination size
-    object.sizey*scale 
+    object.sizex * scale, // destination size
+    object.sizey * scale
   ); //Draws sprite.
 };
 
@@ -188,7 +188,7 @@ export function objectSpriteReelKeyboard(object: canvasImage, element: Element, 
   });
 };
 
-export function getDistance (a, b) {
+export function getDistance(a, b) {
   return Math.sqrt( // the square root of 
     (a.x - b.x) * (a.x - b.x)  // the horizontal side of the triangle squared
     +                          // plus

@@ -1,13 +1,5 @@
 {
   "files": {
-    "app/canvas.ts": [
-      {
-        "id": "cb6a7914-19dd-4fad-b6e4-0998f59def71",
-        "line": 2,
-        "version": 1,
-        "index": 22
-      }
-    ],
     "app/images.ts": [
       {
         "id": "08ca71ea-7b0f-4610-a8ec-1f60ca782387",

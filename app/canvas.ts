@@ -18,4 +18,4 @@ style.height = `${height}px`;
 style.border = '4px';
 style.borderColor = 'red';
 debugger;
-app.appendChild(canvas);
+app.appendChild(canvas);         

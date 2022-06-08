@@ -3,7 +3,7 @@ import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
 import { canvas, height } from '../canvas'
-import {drawGoldCoin, moveCoin, drawCoins, coinCollisionWithCat} from '../coins/coin'
+import { drawGoldCoin, moveCoin, drawCoins, coinCollisionWithCat } from '../coins/coin'
 
 canvas.addEventListener("mousedown", function(event) {
   gravity = true;
@@ -23,14 +23,14 @@ export function moveCat(elapsed: number) {
     cat.y = 0
     cat.vy = 0;
   }
-//  cat.scale += 0.01;
-  let maxheight = canvas.height - (cat.sizey*cat.scale)
+  //  cat.scale += 0.01;
+  let maxheight = canvas.height - (cat.sizey * cat.scale)
   if (cat.y > maxheight) {
     cat.y = maxheight
     cat.vy = 0
   }
   cat.y += (cat.vy * elapsed / 1000)
- // console.log(cat.vy);
+  // console.log(cat.vy);
 }
 
 let gravity = false
@@ -45,7 +45,7 @@ function addSlide() {
   iterateSlideReel += 64
 }
 
-setInterval(addSlide, 2500/12);
+setInterval(addSlide, 2500 / 12);
 
 function animate(timestamp: number = 0) {
   let elapsed;
@@ -73,5 +73,5 @@ function animate(timestamp: number = 0) {
 requestAnimationFrame(animate);
 
 imageMap.catImage.addEventListener("load", () => {
-    drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
+  drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
 })
