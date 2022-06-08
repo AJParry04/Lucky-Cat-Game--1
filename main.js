@@ -1,5 +1,6 @@
 import "./app/";
 import "./style.css";
+import "./app/status/score.ts";
 
 // select the item we want -- this assumes we have
 // <div id="sprite">
