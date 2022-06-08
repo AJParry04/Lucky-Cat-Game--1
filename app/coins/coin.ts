@@ -55,22 +55,32 @@ export function moveCoin(elapsed: number) {
   ]
 }
 
-export function collideWithCat(object1: canvasImage, object2: canvasImage, width1, width2, height1, height2) {
-  const coinWidth: number = object1.x + width1
-  const coinHeight: number = object1.y + height1
-  const catWidth: number = object2.x + width2
-  const catHeight: number = object2.y + height2
+export function collideObjects(object1: canvasImage, object2: canvasImage) {
+  const coinWidth: number = object1.x + object1.sizex/2
+  const coinHeight: number = object1.y + object1.sizey/2
+  const catWidth: number = object2.x + object2.sizex/2
+  const catHeight: number = object2.y + object2.sizey/2
 
-  const coinCenter = {
-    x: coinWidth,
-    y: coinHeight
+  function getCenter (o) {
+    return {
+      x: o.x + (o.sizex * (o.scale||1)/2),
+      y: o.y + (o.sizey * (o.scale||1)/2),
+    }  
   }
-  const catCenter = {
-    x: catWidth,
-    y: catHeight
-  }
+  
+  
+  const object1Center = getCenter(object1);
+  const object2Center = getCenter(object2)
 
-  if (getDistance(coinCenter, catCenter) < 8) {
-    object1.x = 500
+  if (getDistance(object1Center, object2Center) < 128) {
+    object2.x = 500
   }
+}
+
+export function coinCollisionWithCat() {
+  collideObjects(objectMap.cat, objectMap.goldCoin)
+  collideObjects(objectMap.cat, objectMap.pinkCoin)
+  collideObjects(objectMap.cat, objectMap.blueCoin)
+  collideObjects(objectMap.cat, objectMap.silverCoin)
+  collideObjects(objectMap.cat, objectMap.greenCoin) 
 }

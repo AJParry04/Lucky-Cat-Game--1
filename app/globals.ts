@@ -61,7 +61,7 @@ export const cat: canvasImage = {
   sizex: defSize,
   sizey: defSize,
   image: imageMap.catImage,
-  scale : 4.5,
+  scale: 4.5,
 };
 
 export const goldCoin: canvasImage = {
