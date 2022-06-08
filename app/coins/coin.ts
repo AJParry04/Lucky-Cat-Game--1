@@ -1,5 +1,6 @@
 import { objectMap, canvasImage, } from "../globals";
 import { drawCanvasImageNoClear, getDistance } from "../utilities";
+import { plusOne } from "../status/score";
 
 const startingPosX: number = 500;
 const startingPosY: number = 700;
@@ -28,11 +29,11 @@ export function teleportConditionally(coin:canvasImage, posx: number, posy: numb
 }
 
 export function teleportAllConditionally() {
-  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff)
-  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff)
-  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff)
-  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff)
-  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff)
+  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff);
 }
 
 export function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
@@ -49,7 +50,7 @@ export function moveCoins(elapsed: number) {
 }
 
 export function collideObjects(object1: canvasImage, object2: canvasImage) {
-  function getCenter (o) {
+  function getCenter (o: canvasImage) {
     return {
       x: o.x + (o.sizex * (o.scale||1)/2),
       y: o.y + (o.sizey * (o.scale||1)/2),
@@ -61,6 +62,7 @@ export function collideObjects(object1: canvasImage, object2: canvasImage) {
 
   if (getDistance(object1Center, object2Center) < 128) {
     teleportCoin(object2, startingPosX, startingPosY);
+    plusOne();
   }
 }
 

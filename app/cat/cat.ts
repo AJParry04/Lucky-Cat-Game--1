@@ -1,78 +1,75 @@
-import { drawCanvasImage, drawCanvasSprite } from '../utilities'
-import { imageMap } from '../images'
-import { objectMap, cat } from '../globals'
-import { ctx } from '../canvas'
-import { canvas, height } from '../canvas'
-import { teleportAllConditionally, moveCoins, drawCoins, coinCollisionWithCat } from '../coins/coin'
+import { drawCanvasSprite } from '../utilities'
+import { objectMap } from '../globals';
+import { ctx, canvas } from '../canvas';
+import { teleportAllConditionally, moveCoins, drawCoins, coinCollisionWithCat } from '../coins/coin';
 
-canvas.addEventListener("mousedown", function(event) {
+let gravity: boolean = false;
+let startTime = null;
+let iterateSlideReel: number = 0;
+
+canvas.addEventListener("mousedown", function() {
   gravity = true;
 });
 
-canvas.addEventListener("mouseup", function(event) {
+canvas.addEventListener("mouseup", function() {
   gravity = false;
 });
 
 export function moveCat(elapsed: number) {
+  const maxheight: number = canvas.height - (objectMap.cat.sizey * objectMap.cat.scale);
+  
   if (gravity) {
-    cat.vy -= 15;
-  } else {
-    cat.vy += 15;
+    objectMap.cat.vy -= 15;
+  } 
+  else {
+    objectMap.cat.vy += 15;
   }
-  if (cat.y < 0) {
-    cat.y = 0
-    cat.vy = 0;
+  
+  if (objectMap.cat.y < 0) {
+    objectMap.cat.y = 0;
+    objectMap.cat.vy = 0;
   }
-  //  cat.scale += 0.01;
-  let maxheight = canvas.height - (cat.sizey * cat.scale)
-  if (cat.y > maxheight) {
-    cat.y = maxheight
-    cat.vy = 0
+  
+  if (objectMap.cat.y > maxheight) {
+    objectMap.cat.y = maxheight;
+    objectMap.cat.vy = 0;
   }
-  cat.y += (cat.vy * elapsed / 1000)
+  
+  objectMap.cat.y += (objectMap.cat.vy * elapsed / 1000);
   // console.log(cat.vy);
 }
 
-let gravity = false
-
-
-
-let startTime = null
-
-let iterateSlideReel = 0;
-
 function addSlide() {
-  iterateSlideReel += 64
+  iterateSlideReel += 64;
 }
 
-setInterval(addSlide, 2500 / 12);
-
 function animate(timestamp: number = 0) {
-  let elapsed;
+  let elapsed: number = 0;
   if (timestamp) {
     if (!startTime) {
       startTime = timestamp;
-      elapsed = 0;
     } else {
-      elapsed = timestamp - startTime
+      elapsed = timestamp - startTime;
       startTime = timestamp;
     }
-    coinCollisionWithCat()
-    teleportAllConditionally()
+    
+    coinCollisionWithCat();
+    teleportAllConditionally();
     moveCat(elapsed); //plug in move code here
     moveCoins(elapsed);
   }
+  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
-  drawCoins()
+  drawCoins();
+  
   if (iterateSlideReel >= 768) {
     iterateSlideReel = 0;
   }
+  
   requestAnimationFrame(animate);
 }
-teleportAllConditionally()
-requestAnimationFrame(animate);
 
-imageMap.catImage.addEventListener("load", () => {
-  drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
-})
+setInterval(addSlide, 2500 / 12);
+teleportAllConditionally();
+requestAnimationFrame(animate);
