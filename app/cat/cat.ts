@@ -3,7 +3,7 @@ import { imageMap } from '../images'
 import { objectMap, cat } from '../globals'
 import { ctx } from '../canvas'
 import { canvas, height } from '../canvas'
-import {drawGoldCoin, moveCoin, drawCoins} from '../coins/coin'
+import {drawGoldCoin, moveCoin, drawCoins, collideWithCat} from '../coins/coin'
 
 const updateCat = (elapsed: number) => {
 
@@ -61,6 +61,7 @@ function animate(timestamp: number = 0) {
       elapsed = timestamp - startTime
       startTime = timestamp;
     }
+    collideWithCat(objectMap.goldCoin, objectMap.cat, 32, 32, 144, 144)
     moveCat(elapsed); //plug in move code here
     moveCoin(elapsed);
   }

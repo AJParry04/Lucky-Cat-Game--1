@@ -187,3 +187,11 @@ export function objectSpriteReelKeyboard(object: canvasImage, element: Element, 
     }
   });
 };
+
+export function getDistance (a, b) {
+  return Math.sqrt( // the square root of 
+    (a.x - b.x) * (a.x - b.x)  // the horizontal side of the triangle squared
+    +                          // plus
+    (a.y - b.y) * (a.y - b.y) // the vertical side of the triangle squared
+  );
+}
