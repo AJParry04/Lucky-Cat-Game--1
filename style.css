@@ -18,14 +18,15 @@
 
 .header {
   font-size: 30pt;
+  color: #f97ce3;
 }
 
 .score {
   font-size: 50pt;
-  color: pink;
+  color: #f97ce3;
 }
 
 #score {
   font-size: 50pt;
-  color: pink;
+  color: #f97ce3;
 }
