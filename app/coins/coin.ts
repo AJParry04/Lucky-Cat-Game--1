@@ -1,66 +1,54 @@
-import { objectMap, goldCoin, canvasImage, } from "../globals"
-import { drawCanvasImageNoClear } from "../utilities"
-import { objectCollisionDetection, getDistance } from "../utilities"
-import { collisionMap } from "../globals"
+import { objectMap, canvasImage, } from "../globals";
+import { drawCanvasImageNoClear, getDistance } from "../utilities";
 
-objectMap.goldCoin.x = 500;
-objectMap.goldCoin.y = 700 + Math.random() * 1400 - 700;
+const startingPosX: number = 500;
+const startingPosY: number = 700;
+const cutoff: number = -50;
+const speed: number = -200;
+const ms: number = 1000;
 
-export function drawCoins(elasped: number) {
-  [
-    drawGoldCoin(elasped),
-    drawBlueCoin(elasped),
-    drawGreenCoin(elasped),
-    drawPinkCoin(elasped),
-    drawSilverCoin(elasped),
-  ]
-  if (goldCoin.x < -70) {
-    goldCoin.x = 500
-    goldCoin.y = 700 + Math.random() * 1400 - 700;
-  }
-}
-
-export function drawPinkCoin(elasped: number) {
+export function drawCoins() {
+  drawCanvasImageNoClear(objectMap.goldCoin);
+  drawCanvasImageNoClear(objectMap.greenCoin);
+  drawCanvasImageNoClear(objectMap.blueCoin);
   drawCanvasImageNoClear(objectMap.pinkCoin);
-}
-
-export function drawSilverCoin(elasped: number) {
   drawCanvasImageNoClear(objectMap.silverCoin);
 }
 
-export function drawGreenCoin(elasped: number) {
-  drawCanvasImageNoClear(objectMap.greenCoin);
+export function teleportCoin(coin:canvasImage, posx: number, posy: number) {
+  coin.x = posx;
+  coin.y = posy + Math.random() * (posy*2) - posy;
 }
 
-export function drawBlueCoin(elasped: number) {
-  drawCanvasImageNoClear(objectMap.blueCoin);
+export function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number) {
+  if (coin.x < cutoff) {
+    coin.x = posx;
+    coin.y = posy + Math.random() * (posy*2) - posy;
+  }
 }
 
-export function drawGoldCoin(elasped: number) {
-  drawCanvasImageNoClear(objectMap.goldCoin);
+export function teleportAllConditionally() {
+  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff)
+  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff)
+  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff)
+  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff)
+  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff)
 }
 
-export function moveCoin(elapsed: number) {
-  objectMap.goldCoin.vx = -200;
-  objectMap.pinkCoin.vx = -200;
-  objectMap.greenCoin.vx = -200;
-  objectMap.blueCoin.vx = -200;
-  objectMap.silverCoin.vx = -200;
-  [
-    goldCoin.x += (goldCoin.vx * elapsed / 1000),
-    objectMap.pinkCoin.x += (objectMap.pinkCoin.vx * elapsed / 1000),
-    objectMap.silverCoin.x += (objectMap.silverCoin.vx * elapsed / 1000),
-    objectMap.greenCoin.x += (objectMap.greenCoin.vx * elapsed / 1000),
-    objectMap.blueCoin.x += (objectMap.blueCoin.vx * elapsed / 1000)
-  ]
+export function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
+  coin.vx = speed;
+  coin.x += (coin.vx * elapsed / ms);
+}
+
+export function moveCoins(elapsed: number) {
+  moveCoin(elapsed, objectMap.goldCoin, speed, ms);
+  moveCoin(elapsed, objectMap.pinkCoin, speed, ms);
+  moveCoin(elapsed, objectMap.greenCoin, speed, ms);
+  moveCoin(elapsed, objectMap.blueCoin, speed, ms);
+  moveCoin(elapsed, objectMap.silverCoin, speed, ms);
 }
 
 export function collideObjects(object1: canvasImage, object2: canvasImage) {
-  const coinWidth: number = object1.x + object1.sizex/2
-  const coinHeight: number = object1.y + object1.sizey/2
-  const catWidth: number = object2.x + object2.sizex/2
-  const catHeight: number = object2.y + object2.sizey/2
-
   function getCenter (o) {
     return {
       x: o.x + (o.sizex * (o.scale||1)/2),
@@ -68,12 +56,11 @@ export function collideObjects(object1: canvasImage, object2: canvasImage) {
     }  
   }
   
-  
   const object1Center = getCenter(object1);
-  const object2Center = getCenter(object2)
+  const object2Center = getCenter(object2);
 
   if (getDistance(object1Center, object2Center) < 128) {
-    object2.x = 500
+    teleportCoin(object2, startingPosX, startingPosY);
   }
 }
 
