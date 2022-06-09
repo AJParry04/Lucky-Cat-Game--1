@@ -2,6 +2,7 @@ import { drawCanvasSprite } from '../utilities'
 import { objectMap } from '../globals';
 import { ctx, canvas } from '../canvas';
 import { teleportAllConditionally, moveCoins, drawCoins, coinCollisionWithCat } from '../coins/coin';
+import { plusNumber } from "../status/score"
 
 let gravity: boolean = false;
 let startTime = null;
@@ -28,13 +29,15 @@ export function moveCat(elapsed: number) {
   if (objectMap.cat.y < 0) {
     objectMap.cat.y = 0;
     objectMap.cat.vy = 0;
+    plusNumber(-1)
   }
   
   if (objectMap.cat.y > maxheight) {
     objectMap.cat.y = maxheight;
     objectMap.cat.vy = 0;
+    plusNumber(-1)
   }
-  
+
   objectMap.cat.y += (objectMap.cat.vy * elapsed / 1000);
   // console.log(cat.vy);
 }
@@ -58,7 +61,6 @@ function animate(timestamp: number = 0) {
     moveCat(elapsed); //plug in move code here
     moveCoins(elapsed);
   }
-  
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
   drawCoins();

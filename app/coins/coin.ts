@@ -1,11 +1,13 @@
 import { objectMap, canvasImage, } from "../globals";
 import { drawCanvasImageNoClear, getDistance } from "../utilities";
-import { plusOne } from "../status/score";
+import { plusNumber } from "../status/score";
 
 const startingPosX: number = 500;
 const startingPosY: number = 700;
 const cutoff: number = -50;
-const speed: number = -200;
+const speedlow: number = -200;
+const speedmid: number = -300;
+const speedhigh: number = -500;
 const ms: number = 1000;
 
 export function drawCoins() {
@@ -17,24 +19,24 @@ export function drawCoins() {
 }
 
 export function teleportCoin(coin:canvasImage, posx: number, posy: number) {
-  coin.x = posx;
+  coin.x = posx + (Math.random() * (posx*2));
   coin.y = posy + Math.random() * (posy*2) - posy;
 }
 
-function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number) {
+function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number, scoreloss: number) {
   if (coin.x < cutoff) {
-    coin.x = posx;
+    coin.x = posx + (Math.random() * (posx*2));
     coin.y = posy + Math.random() * (posy*2) - posy;
-    
+    plusNumber(scoreloss)
   }
 }
 
 export function teleportAllConditionally() {
-  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff);
-  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff);
-  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff);
-  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff);
-  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff, -1);
+  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff, -1);
+  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff, -1);
+  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff, -1);
+  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff, -1);
 }
 
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
@@ -43,14 +45,14 @@ function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number)
 }
 
 export function moveCoins(elapsed: number) {
-  moveCoin(elapsed, objectMap.goldCoin, speed, ms);
-  moveCoin(elapsed, objectMap.pinkCoin, speed, ms);
-  moveCoin(elapsed, objectMap.greenCoin, speed, ms);
-  moveCoin(elapsed, objectMap.blueCoin, speed, ms);
-  moveCoin(elapsed, objectMap.silverCoin, speed, ms);
+  moveCoin(elapsed, objectMap.goldCoin, speedhigh, ms);
+  moveCoin(elapsed, objectMap.pinkCoin, speedlow, ms);
+  moveCoin(elapsed, objectMap.greenCoin, speedlow, ms);
+  moveCoin(elapsed, objectMap.blueCoin, speedlow, ms);
+  moveCoin(elapsed, objectMap.silverCoin, speedmid, ms);
 }
 
-function collideObjects(object1: canvasImage, object2: canvasImage) {
+function collideObjects(object1: canvasImage, object2: canvasImage, number: number) {
   function getCenter (o: canvasImage) {
     return {
       x: o.x + (o.sizex * (o.scale||1)/2),
@@ -63,14 +65,14 @@ function collideObjects(object1: canvasImage, object2: canvasImage) {
 
   if (getDistance(object1Center, object2Center) < 128) {
     teleportCoin(object2, startingPosX, startingPosY);
-    plusOne();
+    plusNumber(number);
   }
 }
 
 export function coinCollisionWithCat() {
-  collideObjects(objectMap.cat, objectMap.goldCoin);
-  collideObjects(objectMap.cat, objectMap.pinkCoin);
-  collideObjects(objectMap.cat, objectMap.blueCoin);
-  collideObjects(objectMap.cat, objectMap.silverCoin);
-  collideObjects(objectMap.cat, objectMap.greenCoin); 
+  collideObjects(objectMap.cat, objectMap.goldCoin, 5);
+  collideObjects(objectMap.cat, objectMap.pinkCoin, 1);
+  collideObjects(objectMap.cat, objectMap.blueCoin, 1);
+  collideObjects(objectMap.cat, objectMap.silverCoin, 3);
+  collideObjects(objectMap.cat, objectMap.greenCoin, 1); 
 }
