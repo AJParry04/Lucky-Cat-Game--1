@@ -17,6 +17,7 @@ style.height = `${height}px`;
 
 style.border = '4px';
 style.borderColor = 'red';
+
 app.appendChild(canvas);         
 
 // select the item we want -- this assumes we have
