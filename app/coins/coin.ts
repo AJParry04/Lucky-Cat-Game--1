@@ -23,20 +23,19 @@ export function teleportCoin(coin:canvasImage, posx: number, posy: number) {
   coin.y = posy + Math.random() * (posy*2) - posy;
 }
 
-function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number, scoreloss: number) {
+function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number) {
   if (coin.x < cutoff) {
     coin.x = posx + (Math.random() * (posx*2));
     coin.y = posy + Math.random() * (posy*2) - posy;
-    plusNumber(scoreloss)
   }
 }
 
 export function teleportAllConditionally() {
-  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff, -1);
-  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff, -1);
-  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff, -1);
-  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff, -1);
-  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff, -1);
+  teleportConditionally(objectMap.goldCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.greenCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff);
 }
 
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
