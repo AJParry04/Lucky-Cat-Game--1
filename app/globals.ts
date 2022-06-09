@@ -20,7 +20,7 @@ export type canvasImage = {
   scale?: number
 };
 
-export const angel: canvasImage = {
+const angel: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -30,7 +30,7 @@ export const angel: canvasImage = {
   image: imageMap.angelImage,
 };
 
-export const blueCoin: canvasImage = {
+const blueCoin: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -40,7 +40,18 @@ export const blueCoin: canvasImage = {
   image: imageMap.blueCoinImage,
 };
 
-export const cat: canvasImage = {
+const brownDog: canvasImage = {
+  x: defPosX,
+  y: defPosY,
+  vx: defMoveSpeed,
+  vy: defMoveSpeed,
+  sizex: defSize,
+  sizey: defSize,
+  image: imageMap.brownDogImage,
+  scale: 2.5
+}
+
+const cat: canvasImage = {
   x: defPos,
   y: defPos,
   vx: defMoveSpeed,
@@ -51,7 +62,7 @@ export const cat: canvasImage = {
   scale: 4.5,
 };
 
-export const goldCoin: canvasImage = {
+const goldCoin: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -61,7 +72,7 @@ export const goldCoin: canvasImage = {
   image: imageMap.goldCoinImage,
 };
 
-export const greenCoin: canvasImage = {
+const greenCoin: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -71,7 +82,7 @@ export const greenCoin: canvasImage = {
   image: imageMap.greenCoinImage,
 };
 
-export const muscle: canvasImage = {
+const muscle: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -81,7 +92,7 @@ export const muscle: canvasImage = {
   image: imageMap.muscleImage,
 };
 
-export const pinkCoin: canvasImage = {
+const pinkCoin: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -91,7 +102,7 @@ export const pinkCoin: canvasImage = {
   image: imageMap.pinkCoinImage,
 };
 
-export const shark: canvasImage = {
+const shark: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -101,7 +112,7 @@ export const shark: canvasImage = {
   image: imageMap.sharkImage,
 };
 
-export const silverCoin: canvasImage = {
+const silverCoin: canvasImage = {
   x: defPosX,
   y: defPosY,
   vx: defMoveSpeed,
@@ -114,6 +125,7 @@ export const silverCoin: canvasImage = {
 export const objectMap = {
   angel,
   blueCoin,
+  brownDog,
   cat,
   goldCoin,
   greenCoin,

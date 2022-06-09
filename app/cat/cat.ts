@@ -1,4 +1,4 @@
-import { drawCanvasSprite } from '../utilities'
+import { drawCanvasSprite, drawCanvasSpriteNoClear } from '../utilities'
 import { objectMap } from '../globals';
 import { ctx, canvas } from '../canvas';
 import { teleportAllConditionally, moveCoins, drawCoins, coinCollisionWithCat } from '../coins/coin';
@@ -7,7 +7,7 @@ import { plusNumber } from "../status/score"
 let gravity: boolean = false;
 let startTime = null;
 let iterateSlideReel: number = 0;
-
+const maxheight: number = canvas.height - (objectMap.cat.sizey * objectMap.cat.scale);
 canvas.addEventListener("mousedown", function() {
   gravity = true;
 });
@@ -16,9 +16,7 @@ canvas.addEventListener("mouseup", function() {
   gravity = false;
 });
 
-export function moveCat(elapsed: number) {
-  const maxheight: number = canvas.height - (objectMap.cat.sizey * objectMap.cat.scale);
-  
+export function moveCat(elapsed: number) { 
   if (gravity) {
     objectMap.cat.vy -= 15;
   } 
@@ -46,6 +44,11 @@ function addSlide() {
   iterateSlideReel += 64;
 }
 
+function drawSprites() {
+  drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
+  drawCanvasSpriteNoClear(objectMap.brownDog, iterateSlideReel, 0);
+}
+
 function animate(timestamp: number = 0) {
   let elapsed: number = 0;
   if (timestamp) {
@@ -62,7 +65,7 @@ function animate(timestamp: number = 0) {
     moveCoins(elapsed);
   }
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  drawCanvasSprite(objectMap.cat, iterateSlideReel, 0);
+  drawSprites();
   drawCoins();
   
   if (iterateSlideReel >= 768) {

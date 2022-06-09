@@ -36,6 +36,7 @@ export function teleportAllConditionally() {
   teleportConditionally(objectMap.blueCoin, startingPosX, startingPosY, cutoff);
   teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff);
   teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.brownDog, startingPosX, startingPosY, cutoff);
 }
 
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
@@ -49,6 +50,7 @@ export function moveCoins(elapsed: number) {
   moveCoin(elapsed, objectMap.greenCoin, speedlow, ms);
   moveCoin(elapsed, objectMap.blueCoin, speedlow, ms);
   moveCoin(elapsed, objectMap.silverCoin, speedmid, ms);
+  moveCoin(elapsed, objectMap.brownDog, speedmid, ms);
 }
 
 function collideObjects(object1: canvasImage, object2: canvasImage, number: number) {
@@ -74,4 +76,5 @@ export function coinCollisionWithCat() {
   collideObjects(objectMap.cat, objectMap.blueCoin, 1);
   collideObjects(objectMap.cat, objectMap.silverCoin, 3);
   collideObjects(objectMap.cat, objectMap.greenCoin, 1); 
+  collideObjects(objectMap.cat, objectMap.brownDog, -10);
 }

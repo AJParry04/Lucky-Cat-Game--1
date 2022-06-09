@@ -32,6 +32,21 @@ export function drawCanvasImage(object: canvasImage) {
   ); //Draw the object
 };
 
+export function drawCanvasSpriteNoClear(object: canvasImage, panw: number, panh: number) {
+  const scale = object.scale || 1;
+  ctx.drawImage(
+    object.image,
+    panw,
+    panh,
+    object.sizex, // source size
+    object.sizey,
+    object.x,
+    object.y,
+    object.sizex * scale, // destination size
+    object.sizey * scale
+  ); //Draws sprite.
+};
+
 //Draws a sprite sheet with inputs for the panning width and height.
 export function drawCanvasSprite(object: canvasImage, panw: number, panh: number) {
   const scale = object.scale || 1;

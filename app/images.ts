@@ -3,6 +3,7 @@
 import catUrl from "./assets/catSprite.webp";
 import goldCoinUrl from "./assets/goldCoin.webp";
 import blueCoinUrl from "./assets/blueCoin.webp";
+import brownDogUrl from "./assets/brownDog.png";
 import greenCoinUrl from "./assets/greenCoin.webp";
 import pinkCoinUrl from "./assets/pinkCoin.webp";
 import silverCoinUrl from "./assets/silverCoin.webp";
@@ -21,6 +22,7 @@ const fragment: DocumentFragment = document.createDocumentFragment();
 //Define images.
 const angelImage: HTMLImageElement = document.createElement("img");
 const blueCoinImage: HTMLImageElement = document.createElement("img");
+const brownDogImage: HTMLImageElement = document.createElement("img");
 const catImage: HTMLImageElement = document.createElement("img");
 const goldCoinImage: HTMLImageElement = document.createElement("img");
 const greenCoinImage: HTMLImageElement = document.createElement("img");
@@ -34,6 +36,7 @@ const silverCoinImage: HTMLImageElement = document.createElement("img");
 export const imageMap = {
   angelImage,
   blueCoinImage,
+  brownDogImage,
   catImage,
   goldCoinImage,
   greenCoinImage,
@@ -46,6 +49,7 @@ export const imageMap = {
 const urlList = [
   angelUrl,
   blueCoinUrl,
+  brownDogUrl,
   catUrl,
   goldCoinUrl,
   greenCoinUrl,
@@ -58,6 +62,7 @@ const urlList = [
 const imageList: HTMLImageElement[] = [
   angelImage,
   blueCoinImage,
+  brownDogImage,
   catImage,
   goldCoinImage,
   greenCoinImage,
