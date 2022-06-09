@@ -49,6 +49,7 @@ function addSlide() {
 function drawSprites() {
   drawCanvasSprite(cat, iterateSlideReel, 0);
   drawCanvasSpriteNoClear(objectMap.brownDog, iterateSlideReel, 0);
+  drawCanvasSpriteNoClear(objectMap.whiteDog, iterateSlideReel, 0);
 }
 
 function animate(timestamp: number = 0) {

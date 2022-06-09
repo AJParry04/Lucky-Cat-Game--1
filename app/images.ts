@@ -10,6 +10,7 @@ import silverCoinUrl from "./assets/silverCoin.webp";
 import angelUrl from "./assets/angel.webp";
 import muscleUrl from "./assets/muscle.webp";
 import sharkUrl from "./assets/shark.webp";
+import whiteDogUrl from "./assets/whiteDog.png";
 
 /*
 Setup assetdiv and create a fragment to improve performance. 
@@ -30,6 +31,7 @@ const muscleImage: HTMLImageElement = document.createElement("img");
 const pinkCoinImage: HTMLImageElement = document.createElement("img");
 const sharkImage: HTMLImageElement = document.createElement("img");
 const silverCoinImage: HTMLImageElement = document.createElement("img");
+const whiteDogImage: HTMLImageElement = document.createElement("img");
 
 //Create lists to iterate over.
 
@@ -43,7 +45,8 @@ export const imageMap = {
   muscleImage,
   pinkCoinImage,
   sharkImage,
-  silverCoinImage
+  silverCoinImage,
+  whiteDogImage
 };
 
 const urlList = [
@@ -56,7 +59,8 @@ const urlList = [
   muscleUrl,
   pinkCoinUrl,
   sharkUrl,
-  silverCoinUrl
+  silverCoinUrl,
+  whiteDogUrl
 ];
 
 const imageList: HTMLImageElement[] = [
@@ -69,7 +73,8 @@ const imageList: HTMLImageElement[] = [
   muscleImage,
   pinkCoinImage,
   sharkImage,
-  silverCoinImage
+  silverCoinImage,
+  whiteDogImage
 ];
 
 //Reversed for loop to improve iteration performance and iterate over data to have it append to the fragment and assemble.
