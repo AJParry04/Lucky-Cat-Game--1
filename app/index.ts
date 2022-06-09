@@ -8,3 +8,4 @@ import './powerups/angel';
 import './powerups/muscle';
 import './status/lives';
 import './status/timer';
+import "./status/score";
