@@ -1,13 +1,14 @@
 import { objectMap, canvasImage, } from "../globals";
 import { drawCanvasImageNoClear, getDistance } from "../utilities";
-import { plusNumber } from "../status/score";
+import { plusNumber, updateScore } from "../status/score";
 
 const startingPosX: number = 500;
 const startingPosY: number = 700;
 const cutoff: number = -50;
-const speedlow: number = -200;
-const speedmid: number = -300;
-const speedhigh: number = -500;
+
+let speedlow: number = -200;
+let speedmid: number = -300;
+let speedhigh: number = -500;
 const ms: number = 1000;
 
 export function drawCoins() {
@@ -43,16 +44,19 @@ export function teleportAllConditionally() {
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
   coin.vx = speed;
   coin.x += (coin.vx * elapsed / ms);
+  console.log(speed);
 }
 
 export function moveCoins(elapsed: number) {
-  moveCoin(elapsed, objectMap.goldCoin, speedhigh, ms);
-  moveCoin(elapsed, objectMap.pinkCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.greenCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.blueCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.silverCoin, speedmid, ms);
-  moveCoin(elapsed, objectMap.brownDog, speedlow, ms);
-  moveCoin(elapsed, objectMap.whiteDog, speedmid, ms);
+  let mult = 1 + updateScore()/100;
+  
+  moveCoin(elapsed, objectMap.goldCoin, speedhigh * mult, ms);
+  moveCoin(elapsed, objectMap.pinkCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.greenCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.blueCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.silverCoin, speedmid * mult, ms);
+  moveCoin(elapsed, objectMap.brownDog, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.whiteDog, speedmid * mult, ms);
 }
 
 function collideObjects(object1: canvasImage, object2: canvasImage, number: number) {
@@ -65,10 +69,10 @@ function collideObjects(object1: canvasImage, object2: canvasImage, number: numb
   
   const object1Center = getCenter(object1);
   const object2Center = getCenter(object2);
-
+  let mult = 1 + updateScore()/300;
   if (getDistance(object1Center, object2Center) < 128) {
     teleportCoin(object2, startingPosX, startingPosY);
-    plusNumber(number);
+    plusNumber(number * mult);
   }
 }
 

@@ -8,6 +8,7 @@
   margin-top: 60px;
   position: relative;; 
 }
+
 #app>* {
   position: absolute;
   top: 0;
@@ -19,11 +20,22 @@
 .header {
   font-size: 30pt;
   color: #f97ce3;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
 .score {
   font-size: 50pt;
   color: #f97ce3;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #score {

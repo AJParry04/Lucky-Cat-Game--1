@@ -1,7 +1,4 @@
-import { objectMap } from "../globals";
-import { canvas } from "../canvas"
-const maxheight: number = canvas.height - (objectMap.cat.sizey * objectMap.cat.scale);
-let score = 0;
+export let score = 0;
 const scoreDiv = document.querySelector("#score");
 
 export function plusNumber(number: number) {
@@ -9,5 +6,9 @@ export function plusNumber(number: number) {
   if (score < 0) {
     score = 0;
   }
-  scoreDiv.innerHTML = score.toString();
+  scoreDiv.innerHTML = ~~(score).toString();
+}
+
+export function updateScore() {
+  return score
 }

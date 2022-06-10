@@ -10,6 +10,7 @@ let iterateSlideReel: number = 0;
 
 const cat: canvasImage = objectMap.cat
 const maxheight: number = canvas.height - (cat.sizey * cat.scale);
+
 canvas.addEventListener("mousedown", function() {
   gravity = true;
 });
