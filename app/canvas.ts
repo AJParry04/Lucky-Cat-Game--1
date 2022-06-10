@@ -1,5 +1,5 @@
 //Simple canvas setup
-
+import backgroundUrl from "./assets/background.webp"
 export const canvas: HTMLCanvasElement = document.createElement("canvas");
 export const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 
@@ -32,6 +32,8 @@ function showNextFrame () {
   frame = (frame + 1) % nframes; // add one, loop back to zero
   let offset = frame * size;
   div.style.backgroundPosition = `-${offset}px`;
+ div.style.backgroundImage = `url("${backgroundUrl}")`
+
 }
 
 setInterval( // run forever on a timer
