@@ -11,6 +11,15 @@ let iterateSlideReel: number = 0;
 const cat: canvasImage = objectMap.cat
 const maxheight: number = canvas.height - (cat.sizey * cat.scale);
 
+canvas.addEventListener("touchstart", function() {
+  gravity = true;
+});
+
+canvas.addEventListener("touchend", function() {
+  gravity = false;
+});
+
+
 canvas.addEventListener("mousedown", function() {
   gravity = true;
 });
