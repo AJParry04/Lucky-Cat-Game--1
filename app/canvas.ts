@@ -1,5 +1,5 @@
 //Simple canvas setup
-import backgroundUrl from "./assets/background.webp"
+import backgroundUrl from "/app/assets/background.webp"
 export const canvas: HTMLCanvasElement = document.createElement("canvas");
 export const ctx: CanvasRenderingContext2D = canvas.getContext("2d");
 

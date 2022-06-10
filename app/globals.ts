@@ -48,7 +48,7 @@ const brownDog: canvasImage = {
   sizex: defSize,
   sizey: defSize,
   image: imageMap.brownDogImage,
-  scale: 2.5
+  scale: 2
 }
 
 const cat: canvasImage = {
@@ -122,6 +122,17 @@ const silverCoin: canvasImage = {
   image: imageMap.silverCoinImage,
 };
 
+const whiteDog: canvasImage = {
+  x: defPosX,
+  y: defPosY,
+  vx: defMoveSpeed,
+  vy: defMoveSpeed,
+  sizex: defSize,
+  sizey: defSize,
+  image: imageMap.whiteDogImage,
+  scale: 3
+}
+
 export const objectMap = {
   angel,
   blueCoin,
@@ -132,5 +143,6 @@ export const objectMap = {
   muscle,
   pinkCoin,
   shark,
-  silverCoin
+  silverCoin,
+  whiteDog
 };

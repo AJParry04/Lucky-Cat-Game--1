@@ -15,3 +15,5 @@ will adjusted the coins' speed
 archy wrote instructions
 
 danny worked on the score 
+
+William finished score, improved how the cat interacts with coins, borders and added a dog that removes score.

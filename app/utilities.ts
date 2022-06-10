@@ -4,7 +4,7 @@ import { canvasImage } from "./globals";
 import { ctx, canvas } from "./canvas";
 
 //Serves as our offset multiplier for clearing the image to avoid artifacts. Not letting others set this as this value has been tried and stays true.
-const clearMod: number = 2;
+
 export function drawCanvasImageNoClear(object: canvasImage) {
   ctx.drawImage(
     object.image,
@@ -53,8 +53,8 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
   ctx.clearRect(
     0,
     0,
-    object.sizex * clearMod,
-    object.sizey * clearMod
+    canvas.width,
+    canvas.height
   ); //Clear around the object.
   ctx.drawImage(
     object.image,
@@ -69,7 +69,7 @@ export function drawCanvasSprite(object: canvasImage, panw: number, panh: number
   ); //Draws sprite.
 };
 
-export function getDistance(a: object, b: object) {
+export function getDistance(a, b) {
   return Math.sqrt( // the square root of 
     (a.x - b.x) * (a.x - b.x)  // the horizontal side of the triangle squared
     +                          // plus

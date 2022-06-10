@@ -1,11 +1,18 @@
 {
   "files": {
-    "app/images.ts": [
+    "app/cat/cat.ts": [
       {
+<<<<<<< HEAD
         "id": "08ca71ea-7b0f-4610-a8ec-1f60ca782387",
         "line": 1,
         "version": 1,
         "index": 0
+=======
+        "id": "0fff7827-8c0e-45a3-ad11-dc4028465feb",
+        "line": 23,
+        "version": 1560,
+        "index": 707
+>>>>>>> origin/main
       }
     ]
   }

@@ -1,13 +1,14 @@
 import { objectMap, canvasImage, } from "../globals";
 import { drawCanvasImageNoClear, getDistance } from "../utilities";
-import { plusNumber } from "../status/score";
+import { plusNumber, updateScore } from "../status/score";
 
 const startingPosX: number = 500;
 const startingPosY: number = 700;
 const cutoff: number = -50;
-const speedlow: number = -200;
-const speedmid: number = -300;
-const speedhigh: number = -500;
+
+let speedlow: number = -200;
+let speedmid: number = -300;
+let speedhigh: number = -500;
 const ms: number = 1000;
 
 export function drawCoins() {
@@ -24,10 +25,9 @@ export function teleportCoin(coin:canvasImage, posx: number, posy: number) {
 }
 
 function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number) {
-  if (coin.x < cutoff) {
-    coin.x = posx + (Math.random() * (posx*2));
-    coin.y = posy + Math.random() * (posy*2) - posy;
-  }
+  if (coin.x > cutoff) { return;} 
+  coin.x = posx + (Math.random() * (posx*2));
+  coin.y = posy + Math.random() * (posy*2) - posy;
 }
 
 export function teleportAllConditionally() {
@@ -37,6 +37,7 @@ export function teleportAllConditionally() {
   teleportConditionally(objectMap.silverCoin, startingPosX, startingPosY, cutoff);
   teleportConditionally(objectMap.pinkCoin, startingPosX, startingPosY, cutoff);
   teleportConditionally(objectMap.brownDog, startingPosX, startingPosY, cutoff);
+  teleportConditionally(objectMap.whiteDog, startingPosX, startingPosY, cutoff);
 }
 
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
@@ -45,12 +46,15 @@ function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number)
 }
 
 export function moveCoins(elapsed: number) {
-  moveCoin(elapsed, objectMap.goldCoin, speedhigh, ms);
-  moveCoin(elapsed, objectMap.pinkCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.greenCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.blueCoin, speedlow, ms);
-  moveCoin(elapsed, objectMap.silverCoin, speedmid, ms);
-  moveCoin(elapsed, objectMap.brownDog, speedmid, ms);
+  const mult = 1 + updateScore()/100;
+  
+  moveCoin(elapsed, objectMap.goldCoin, speedhigh * mult, ms);
+  moveCoin(elapsed, objectMap.pinkCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.greenCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.blueCoin, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.silverCoin, speedmid * mult, ms);
+  moveCoin(elapsed, objectMap.brownDog, speedlow * mult, ms);
+  moveCoin(elapsed, objectMap.whiteDog, speedmid * mult, ms);
 }
 
 function collideObjects(object1: canvasImage, object2: canvasImage, number: number) {
@@ -63,11 +67,11 @@ function collideObjects(object1: canvasImage, object2: canvasImage, number: numb
   
   const object1Center = getCenter(object1);
   const object2Center = getCenter(object2);
-
-  if (getDistance(object1Center, object2Center) < 128) {
-    teleportCoin(object2, startingPosX, startingPosY);
-    plusNumber(number);
-  }
+  if (getDistance(object1Center, object2Center) > 128) { return; }
+  
+  const mult = 1 + updateScore()/300;
+  teleportCoin(object2, startingPosX, startingPosY);
+  plusNumber(number * mult);
 }
 
 export function coinCollisionWithCat() {
@@ -76,5 +80,6 @@ export function coinCollisionWithCat() {
   collideObjects(objectMap.cat, objectMap.blueCoin, 1);
   collideObjects(objectMap.cat, objectMap.silverCoin, 3);
   collideObjects(objectMap.cat, objectMap.greenCoin, 1); 
-  collideObjects(objectMap.cat, objectMap.brownDog, -10);
+  collideObjects(objectMap.cat, objectMap.brownDog, -5);
+  collideObjects(objectMap.cat, objectMap.whiteDog, -10);
 }
