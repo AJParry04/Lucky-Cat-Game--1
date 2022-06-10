@@ -25,10 +25,9 @@ export function teleportCoin(coin:canvasImage, posx: number, posy: number) {
 }
 
 function teleportConditionally(coin:canvasImage, posx: number, posy: number, cutoff: number) {
-  if (coin.x < cutoff) {
-    coin.x = posx + (Math.random() * (posx*2));
-    coin.y = posy + Math.random() * (posy*2) - posy;
-  }
+  if (coin.x > cutoff) { return;} 
+  coin.x = posx + (Math.random() * (posx*2));
+  coin.y = posy + Math.random() * (posy*2) - posy;
 }
 
 export function teleportAllConditionally() {
@@ -44,11 +43,10 @@ export function teleportAllConditionally() {
 function moveCoin(elapsed: number, coin: canvasImage, speed: number, ms: number) {
   coin.vx = speed;
   coin.x += (coin.vx * elapsed / ms);
-  console.log(speed);
 }
 
 export function moveCoins(elapsed: number) {
-  let mult = 1 + updateScore()/100;
+  const mult = 1 + updateScore()/100;
   
   moveCoin(elapsed, objectMap.goldCoin, speedhigh * mult, ms);
   moveCoin(elapsed, objectMap.pinkCoin, speedlow * mult, ms);
@@ -69,11 +67,11 @@ function collideObjects(object1: canvasImage, object2: canvasImage, number: numb
   
   const object1Center = getCenter(object1);
   const object2Center = getCenter(object2);
-  let mult = 1 + updateScore()/300;
-  if (getDistance(object1Center, object2Center) < 128) {
-    teleportCoin(object2, startingPosX, startingPosY);
-    plusNumber(number * mult);
-  }
+  if (getDistance(object1Center, object2Center) > 128) { return; }
+  
+  const mult = 1 + updateScore()/300;
+  teleportCoin(object2, startingPosX, startingPosY);
+  plusNumber(number * mult);
 }
 
 export function coinCollisionWithCat() {

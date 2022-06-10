@@ -19,26 +19,27 @@ canvas.addEventListener("mouseup", function() {
   gravity = false;
 });
 
-export function moveCat(elapsed: number) { 
+function catCollision() {
+  if (cat.y > 0 && cat.y < maxheight) { return }
+  
+  if (cat.y < 0) {
+    cat.y = 0;
+  }
+  if (cat.y > maxheight) {
+    cat.y = maxheight;
+  }
+  cat.vy = 0;
+  plusNumber(-1);
+}
+                        
+function moveCat(elapsed: number) { 
+  catCollision();
   if (gravity) {
     cat.vy -= 30;
   } 
   else {
     cat.vy += 15;
   }
-  
-  if (cat.y < 0) {
-    cat.y = 0;
-    cat.vy = 0;
-    plusNumber(-1);
-  }
-  
-  if (cat.y > maxheight) {
-    cat.y = maxheight;
-    cat.vy = 0;
-    plusNumber(-1);
-  }
-
   cat.y += (cat.vy * elapsed / 1000);
   // console.log(cat.vy);
 }
